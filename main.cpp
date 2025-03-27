@@ -4,6 +4,7 @@
 #include <random>
 #include <string>
 #include <stdexcept>
+#include <algorithm>
 
 // Шаблонные функции сортировки (заглушки)
 template <typename T>
