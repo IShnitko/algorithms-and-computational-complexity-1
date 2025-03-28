@@ -1,0 +1,7 @@
+# Пример конфигурации
+algorithm = quick_sort    # quick_sort, shell_sort, heap_sort
+data_type = person        # int, float, double, char, person
+array_size = 10000        # размер массива
+array_type = random       # random, sorted, reverse_sorted, partially_sorted
+#input_file = data.txt     # опционально (для загрузки из файла)
+sort_field = age          # name, age, salary (только для объектов)

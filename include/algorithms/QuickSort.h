@@ -1,21 +1,8 @@
-#ifndef QUICKSORT_H
-#define QUICKSORT_H
-
+#pragma once
 #include <algorithm> // Для std::swap
 
 namespace QuickSort {
-
-    // Предварительное объявление шаблонной функции
-    template <typename T, typename Compare>
-    void quickSort(T* arr, int low, int high, Compare comp);
-
-    // Основной публичный интерфейс
-    template <typename T, typename Compare>
-    void sort(T* arr, int size, Compare comp) {
-        quickSort(arr, 0, size - 1, comp);
-    }
-
-    // Реализация быстрой сортировки
+    // Вспомогательная функция
     template <typename T, typename Compare>
     void quickSort(T* arr, int low, int high, Compare comp) {
         if (low < high) {
@@ -37,6 +24,9 @@ namespace QuickSort {
         }
     }
 
-} // namespace QuickSort
-
-#endif
+    // Основной публичный интерфейс
+    template <typename T, typename Compare>
+    void sort(T* arr, size_t size, Compare comp) {
+        quickSort(arr, 0, size - 1, comp);
+    }
+}

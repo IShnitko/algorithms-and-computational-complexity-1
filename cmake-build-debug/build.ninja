@@ -77,6 +77,13 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
 build cmake_object_order_depends_target_main_app: phony || .
 
+build src/CMakeFiles/main_app.dir/config/ConfigParser.cpp.obj: CXX_COMPILER__main_app_unscanned_Debug C$:/Users/ilysh/dev_cpp/AiZO_project_1/src/config/ConfigParser.cpp || cmake_object_order_depends_target_main_app
+  DEP_FILE = src\CMakeFiles\main_app.dir\config\ConfigParser.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/ilysh/dev_cpp/AiZO_project_1/include
+  OBJECT_DIR = src\CMakeFiles\main_app.dir
+  OBJECT_FILE_DIR = src\CMakeFiles\main_app.dir\config
+
 build src/CMakeFiles/main_app.dir/data_types/Person.cpp.obj: CXX_COMPILER__main_app_unscanned_Debug C$:/Users/ilysh/dev_cpp/AiZO_project_1/src/data_types/Person.cpp || cmake_object_order_depends_target_main_app
   DEP_FILE = src\CMakeFiles\main_app.dir\data_types\Person.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
@@ -120,7 +127,7 @@ build src/CMakeFiles/main_app.dir/main.cpp.obj: CXX_COMPILER__main_app_unscanned
 #############################################
 # Link the executable src\main_app.exe
 
-build src/main_app.exe: CXX_EXECUTABLE_LINKER__main_app_Debug src/CMakeFiles/main_app.dir/data_types/Person.cpp.obj src/CMakeFiles/main_app.dir/data_generation/DataGenerator.cpp.obj src/CMakeFiles/main_app.dir/utils/Helpers.cpp.obj src/CMakeFiles/main_app.dir/utils/Timer.cpp.obj src/CMakeFiles/main_app.dir/main.cpp.obj
+build src/main_app.exe: CXX_EXECUTABLE_LINKER__main_app_Debug src/CMakeFiles/main_app.dir/config/ConfigParser.cpp.obj src/CMakeFiles/main_app.dir/data_types/Person.cpp.obj src/CMakeFiles/main_app.dir/data_generation/DataGenerator.cpp.obj src/CMakeFiles/main_app.dir/utils/Helpers.cpp.obj src/CMakeFiles/main_app.dir/utils/Timer.cpp.obj src/CMakeFiles/main_app.dir/main.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = src\CMakeFiles\main_app.dir
