@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 
 add_executable(main_app
+        config/ConfigParser.cpp
         data_types/Person.cpp       # Только НЕ шаблонные реализации
         data_generation/DataGenerator.cpp
         utils/Helpers.cpp

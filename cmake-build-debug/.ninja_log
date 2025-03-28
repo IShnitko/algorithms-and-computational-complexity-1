@@ -1,12 +1,14 @@
 # ninja log v6
-44	2555	7648957241198848	src/CMakeFiles/main_app.dir/main.cpp.obj	320aabda715337a7
-6	1804	7648751891735204	CMakeFiles/AiZO_project_1.dir/main.cpp.obj	7d903eb98d4c1cce
 1971	2133	7648760428463757	AiZO_project_1.exe	68c81727d799c591
-4	244	7648960248028234	build.ninja	86a051eaed15daf5
+6	1804	7648751891735204	CMakeFiles/AiZO_project_1.dir/main.cpp.obj	7d903eb98d4c1cce
+8	1681	7648968556985558	src/CMakeFiles/main_app.dir/main.cpp.obj	320aabda715337a7
+4	244	7648975335418011	build.ninja	86a051eaed15daf5
 3	1970	7648760408778238	CMakeFiles/AiZO_project_1.dir/src/main.cpp.obj	82d66703b3b495e3
 33	1164	7648957241088866	src/CMakeFiles/main_app.dir/utils/Helpers.cpp.obj	73b4aa447a8a11ed
 39	2158	7648957241148959	src/CMakeFiles/main_app.dir/utils/Timer.cpp.obj	4f9c6c5f3fa030ff
+1681	1866	7648968573720501	src/main_app.exe	f1e80cf230f87072
 11	1646	7648959733483158	src/CMakeFiles/main_app.dir/data_generation/DataGenerator.cpp.obj	12c6b5a6e8d7dd9b
 7	670	7648959733433152	src/CMakeFiles/main_app.dir/data_types/Person.cpp.obj	210b1c05130c50af
-5	1643	7648961170444499	src/CMakeFiles/main_app.dir/main.cpp.obj	320aabda715337a7
-1644	2097	7648961186832723	src/main_app.exe	f1e80cf230f87072
+3	270	7648975335418011	build.ninja	86a051eaed15daf5
+7	1437	7648975335898324	src/CMakeFiles/main_app.dir/config/ConfigParser.cpp.obj	8ce34f12d0c840ff
+1437	1752	7648975350197672	src/main_app.exe	b524103017abb45e

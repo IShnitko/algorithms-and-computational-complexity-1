@@ -74,7 +74,7 @@ int main() {
         }
 
         QuickSort::sort(demoPeople.data(), demoSize,
-            [](auto& a, auto& b) { return a.name < b.name; });
+            [](auto& a, auto& b) { return a.age < b.age; });
 
         std::cout << "\nAfter sorting by name:\n";
         for (const auto& p : demoPeople) {
