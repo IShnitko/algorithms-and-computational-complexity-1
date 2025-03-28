@@ -8,9 +8,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Подключение заголовков
 include_directories(include)
 
-# Основные библиотеки
+# Подключение исходного кода из папки src
 add_subdirectory(src)
-add_subdirectory(tests) # Если нужны тесты
 
 ## Исполняемый файл
 #add_executable(AiZO_project_1 src/main.cpp)

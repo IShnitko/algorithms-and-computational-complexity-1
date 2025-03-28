@@ -6,17 +6,31 @@
 			[
 				{
 					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
 					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.30"
+						"string" : "3.10"
 					},
 					"projectIndex" : 0,
-					"source" : ".",
+					"source" : "."
+				},
+				{
+					"build" : "src",
+					"jsonFile" : "directory-src-Debug-c94b7c2814d5a21df52c.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "src",
 					"targetIndexes" : 
 					[
-						0,
-						1
+						0
 					]
 				}
 			],
@@ -26,30 +40,23 @@
 				{
 					"directoryIndexes" : 
 					[
-						0
+						0,
+						1
 					],
 					"name" : "AiZO_project_1",
 					"targetIndexes" : 
 					[
-						0,
-						1
+						0
 					]
 				}
 			],
 			"targets" : 
 			[
 				{
-					"directoryIndex" : 0,
-					"id" : "AiZO_project_1::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-AiZO_project_1-Debug-336d255c061ba7983014.json",
-					"name" : "AiZO_project_1",
-					"projectIndex" : 0
-				},
-				{
-					"directoryIndex" : 0,
-					"id" : "main_lib::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-main_lib-Debug-405c2c05436432634dea.json",
-					"name" : "main_lib",
+					"directoryIndex" : 1,
+					"id" : "main_app::@145eef247bfb46b6828c",
+					"jsonFile" : "target-main_app-Debug-1528e1cb1db8a3c7fb94.json",
+					"name" : "main_app",
 					"projectIndex" : 0
 				}
 			]

@@ -18,11 +18,17 @@ void printArray(const T* arr, int size) {
     std::cout << "\n";
 }
 
-template <typename T>
-void loadFromFile(const std::string& filename, T*& arr, int& size) {
-    // ... реализация
-}
+template<typename T>
+void loadFromFile(const std::string &filename, T *&arr, int &size) {
+    std::ifstream file(filename);
+    if (!file) throw std::runtime_error("File not found");
 
+    file >> size;
+    arr = new T[size];
+    for (int i = 0; i < size; i++) {
+        if (!(file >> arr[i])) throw std::runtime_error("Invalid data format");
+    }
+}
 // Явные инстанциации
 template bool isSorted<int>(const int*, int);
 template void printArray<int>(const int*, int);

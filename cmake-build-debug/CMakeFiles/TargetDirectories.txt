@@ -1,4 +1,5 @@
-C:/Users/ilysh/dev_cpp/AiZO_project_1/cmake-build-debug/CMakeFiles/main_lib.dir
-C:/Users/ilysh/dev_cpp/AiZO_project_1/cmake-build-debug/CMakeFiles/AiZO_project_1.dir
 C:/Users/ilysh/dev_cpp/AiZO_project_1/cmake-build-debug/CMakeFiles/edit_cache.dir
 C:/Users/ilysh/dev_cpp/AiZO_project_1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/ilysh/dev_cpp/AiZO_project_1/cmake-build-debug/src/CMakeFiles/main_app.dir
+C:/Users/ilysh/dev_cpp/AiZO_project_1/cmake-build-debug/src/CMakeFiles/edit_cache.dir
+C:/Users/ilysh/dev_cpp/AiZO_project_1/cmake-build-debug/src/CMakeFiles/rebuild_cache.dir

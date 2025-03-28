@@ -1,8 +1,6 @@
-#ifndef PERSON_H
-#define PERSON_H
-
-#include <string>
+#pragma once
 #include <iostream>
+#include <string>
 
 class Person {
 public:
@@ -11,7 +9,7 @@ public:
     double salary;
 
     Person(std::string n = "", int a = 0, double s = 0.0);
+
+    // Объявление friend-функции БЕЗ реализации
     friend std::ostream& operator<<(std::ostream& os, const Person& p);
 };
-
-#endif

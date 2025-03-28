@@ -149,6 +149,9 @@
 			"isCMake" : true,
 			"isExternal" : true,
 			"path" : "C:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeCommonLanguageInclude.cmake"
+		},
+		{
+			"path" : "src/CMakeLists.txt"
 		}
 	],
 	"kind" : "cmakeFiles",

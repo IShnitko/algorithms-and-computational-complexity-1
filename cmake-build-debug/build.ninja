@@ -40,70 +40,6 @@ include CMakeFiles/rules.ninja
 # Logical path to working directory; prefix for absolute paths.
 
 cmake_ninja_workdir = C$:/Users/ilysh/dev_cpp/AiZO_project_1/cmake-build-debug/
-# =============================================================================
-# Object build statements for STATIC_LIBRARY target main_lib
-
-
-#############################################
-# Order-only phony target for main_lib
-
-build cmake_object_order_depends_target_main_lib: phony || .
-
-build CMakeFiles/main_lib.dir/src/main.cpp.obj: CXX_COMPILER__main_lib_unscanned_Debug C$:/Users/ilysh/dev_cpp/AiZO_project_1/src/main.cpp || cmake_object_order_depends_target_main_lib
-  DEP_FILE = CMakeFiles\main_lib.dir\src\main.cpp.obj.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\main_lib.dir
-  OBJECT_FILE_DIR = CMakeFiles\main_lib.dir\src
-
-
-# =============================================================================
-# Link build statements for STATIC_LIBRARY target main_lib
-
-
-#############################################
-# Link the static library libmain_lib.a
-
-build libmain_lib.a: CXX_STATIC_LIBRARY_LINKER__main_lib_Debug CMakeFiles/main_lib.dir/src/main.cpp.obj
-  LANGUAGE_COMPILE_FLAGS = -g
-  OBJECT_DIR = CMakeFiles\main_lib.dir
-  POST_BUILD = cd .
-  PRE_LINK = cd .
-  TARGET_FILE = libmain_lib.a
-  TARGET_PDB = main_lib.a.dbg
-
-# =============================================================================
-# Object build statements for EXECUTABLE target AiZO_project_1
-
-
-#############################################
-# Order-only phony target for AiZO_project_1
-
-build cmake_object_order_depends_target_AiZO_project_1: phony || .
-
-build CMakeFiles/AiZO_project_1.dir/src/main.cpp.obj: CXX_COMPILER__AiZO_project_1_unscanned_Debug C$:/Users/ilysh/dev_cpp/AiZO_project_1/src/main.cpp || cmake_object_order_depends_target_AiZO_project_1
-  DEP_FILE = CMakeFiles\AiZO_project_1.dir\src\main.cpp.obj.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\AiZO_project_1.dir
-  OBJECT_FILE_DIR = CMakeFiles\AiZO_project_1.dir\src
-
-
-# =============================================================================
-# Link build statements for EXECUTABLE target AiZO_project_1
-
-
-#############################################
-# Link the executable AiZO_project_1.exe
-
-build AiZO_project_1.exe: CXX_EXECUTABLE_LINKER__AiZO_project_1_Debug CMakeFiles/AiZO_project_1.dir/src/main.cpp.obj
-  FLAGS = -g
-  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = CMakeFiles\AiZO_project_1.dir
-  POST_BUILD = cd .
-  PRE_LINK = cd .
-  TARGET_FILE = AiZO_project_1.exe
-  TARGET_IMPLIB = libAiZO_project_1.dll.a
-  TARGET_PDB = AiZO_project_1.exe.dbg
-
 
 #############################################
 # Utility command for edit_cache
@@ -128,11 +64,101 @@ build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
 # =============================================================================
+# Write statements declared in CMakeLists.txt:
+# C:/Users/ilysh/dev_cpp/AiZO_project_1/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for EXECUTABLE target main_app
+
+
+#############################################
+# Order-only phony target for main_app
+
+build cmake_object_order_depends_target_main_app: phony || .
+
+build src/CMakeFiles/main_app.dir/data_types/Person.cpp.obj: CXX_COMPILER__main_app_unscanned_Debug C$:/Users/ilysh/dev_cpp/AiZO_project_1/src/data_types/Person.cpp || cmake_object_order_depends_target_main_app
+  DEP_FILE = src\CMakeFiles\main_app.dir\data_types\Person.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/ilysh/dev_cpp/AiZO_project_1/include
+  OBJECT_DIR = src\CMakeFiles\main_app.dir
+  OBJECT_FILE_DIR = src\CMakeFiles\main_app.dir\data_types
+
+build src/CMakeFiles/main_app.dir/data_generation/DataGenerator.cpp.obj: CXX_COMPILER__main_app_unscanned_Debug C$:/Users/ilysh/dev_cpp/AiZO_project_1/src/data_generation/DataGenerator.cpp || cmake_object_order_depends_target_main_app
+  DEP_FILE = src\CMakeFiles\main_app.dir\data_generation\DataGenerator.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/ilysh/dev_cpp/AiZO_project_1/include
+  OBJECT_DIR = src\CMakeFiles\main_app.dir
+  OBJECT_FILE_DIR = src\CMakeFiles\main_app.dir\data_generation
+
+build src/CMakeFiles/main_app.dir/utils/Helpers.cpp.obj: CXX_COMPILER__main_app_unscanned_Debug C$:/Users/ilysh/dev_cpp/AiZO_project_1/src/utils/Helpers.cpp || cmake_object_order_depends_target_main_app
+  DEP_FILE = src\CMakeFiles\main_app.dir\utils\Helpers.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/ilysh/dev_cpp/AiZO_project_1/include
+  OBJECT_DIR = src\CMakeFiles\main_app.dir
+  OBJECT_FILE_DIR = src\CMakeFiles\main_app.dir\utils
+
+build src/CMakeFiles/main_app.dir/utils/Timer.cpp.obj: CXX_COMPILER__main_app_unscanned_Debug C$:/Users/ilysh/dev_cpp/AiZO_project_1/src/utils/Timer.cpp || cmake_object_order_depends_target_main_app
+  DEP_FILE = src\CMakeFiles\main_app.dir\utils\Timer.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/ilysh/dev_cpp/AiZO_project_1/include
+  OBJECT_DIR = src\CMakeFiles\main_app.dir
+  OBJECT_FILE_DIR = src\CMakeFiles\main_app.dir\utils
+
+build src/CMakeFiles/main_app.dir/main.cpp.obj: CXX_COMPILER__main_app_unscanned_Debug C$:/Users/ilysh/dev_cpp/AiZO_project_1/src/main.cpp || cmake_object_order_depends_target_main_app
+  DEP_FILE = src\CMakeFiles\main_app.dir\main.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/ilysh/dev_cpp/AiZO_project_1/include
+  OBJECT_DIR = src\CMakeFiles\main_app.dir
+  OBJECT_FILE_DIR = src\CMakeFiles\main_app.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target main_app
+
+
+#############################################
+# Link the executable src\main_app.exe
+
+build src/main_app.exe: CXX_EXECUTABLE_LINKER__main_app_Debug src/CMakeFiles/main_app.dir/data_types/Person.cpp.obj src/CMakeFiles/main_app.dir/data_generation/DataGenerator.cpp.obj src/CMakeFiles/main_app.dir/utils/Helpers.cpp.obj src/CMakeFiles/main_app.dir/utils/Timer.cpp.obj src/CMakeFiles/main_app.dir/main.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = src\CMakeFiles\main_app.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = src\main_app.exe
+  TARGET_IMPLIB = src\libmain_app.dll.a
+  TARGET_PDB = main_app.exe.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build src/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\ilysh\dev_cpp\AiZO_project_1\cmake-build-debug\src && C:\Users\ilysh\AppData\Local\Programs\CLion\bin\cmake\win\x64\bin\cmake.exe -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build src/edit_cache: phony src/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build src/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\ilysh\dev_cpp\AiZO_project_1\cmake-build-debug\src && C:\Users\ilysh\AppData\Local\Programs\CLion\bin\cmake\win\x64\bin\cmake.exe --regenerate-during-build -SC:\Users\ilysh\dev_cpp\AiZO_project_1 -BC:\Users\ilysh\dev_cpp\AiZO_project_1\cmake-build-debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build src/rebuild_cache: phony src/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
 # Target aliases.
 
-build AiZO_project_1: phony AiZO_project_1.exe
+build main_app: phony src/main_app.exe
 
-build main_lib: phony libmain_lib.a
+build main_app.exe: phony src/main_app.exe
 
 # =============================================================================
 # Folder targets.
@@ -142,7 +168,14 @@ build main_lib: phony libmain_lib.a
 #############################################
 # Folder: C:/Users/ilysh/dev_cpp/AiZO_project_1/cmake-build-debug
 
-build all: phony libmain_lib.a AiZO_project_1.exe
+build all: phony src/all
+
+# =============================================================================
+
+#############################################
+# Folder: C:/Users/ilysh/dev_cpp/AiZO_project_1/cmake-build-debug/src
+
+build src/all: phony src/main_app.exe
 
 # =============================================================================
 # Built-in targets
@@ -151,14 +184,14 @@ build all: phony libmain_lib.a AiZO_project_1.exe
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeCInformation.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeCXXInformation.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeCommonLanguageInclude.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeGenericSystem.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeInitializeConfigs.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeLanguageInformation.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeRCInformation.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeSystemSpecificInformation.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeSystemSpecificInitialize.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/GNU-C.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/GNU-CXX.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/GNU.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows-GNU-C.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows-GNU-CXX.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows-GNU.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows-Initialize.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows-windres.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/WindowsPaths.cmake C$:/Users/ilysh/dev_cpp/AiZO_project_1/CMakeLists.txt CMakeCache.txt CMakeFiles/3.30.5/CMakeCCompiler.cmake CMakeFiles/3.30.5/CMakeCXXCompiler.cmake CMakeFiles/3.30.5/CMakeRCCompiler.cmake CMakeFiles/3.30.5/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeCInformation.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeCXXInformation.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeCommonLanguageInclude.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeGenericSystem.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeInitializeConfigs.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeLanguageInformation.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeRCInformation.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeSystemSpecificInformation.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeSystemSpecificInitialize.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/GNU-C.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/GNU-CXX.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/GNU.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows-GNU-C.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows-GNU-CXX.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows-GNU.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows-Initialize.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows-windres.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/WindowsPaths.cmake C$:/Users/ilysh/dev_cpp/AiZO_project_1/CMakeLists.txt C$:/Users/ilysh/dev_cpp/AiZO_project_1/src/CMakeLists.txt CMakeCache.txt CMakeFiles/3.30.5/CMakeCCompiler.cmake CMakeFiles/3.30.5/CMakeCXXCompiler.cmake CMakeFiles/3.30.5/CMakeRCCompiler.cmake CMakeFiles/3.30.5/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeCInformation.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeCXXInformation.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeCommonLanguageInclude.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeGenericSystem.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeInitializeConfigs.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeLanguageInformation.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeRCInformation.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeSystemSpecificInformation.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeSystemSpecificInitialize.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/GNU-C.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/GNU-CXX.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/GNU.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows-GNU-C.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows-GNU-CXX.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows-GNU.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows-Initialize.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows-windres.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/WindowsPaths.cmake C$:/Users/ilysh/dev_cpp/AiZO_project_1/CMakeLists.txt CMakeCache.txt CMakeFiles/3.30.5/CMakeCCompiler.cmake CMakeFiles/3.30.5/CMakeCXXCompiler.cmake CMakeFiles/3.30.5/CMakeRCCompiler.cmake CMakeFiles/3.30.5/CMakeSystem.cmake: phony
+build C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeCInformation.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeCXXInformation.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeCommonLanguageInclude.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeGenericSystem.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeInitializeConfigs.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeLanguageInformation.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeRCInformation.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeSystemSpecificInformation.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/CMakeSystemSpecificInitialize.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/GNU-C.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/GNU-CXX.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Compiler/GNU.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows-GNU-C.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows-GNU-CXX.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows-GNU.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows-Initialize.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows-windres.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/Windows.cmake C$:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30/Modules/Platform/WindowsPaths.cmake C$:/Users/ilysh/dev_cpp/AiZO_project_1/CMakeLists.txt C$:/Users/ilysh/dev_cpp/AiZO_project_1/src/CMakeLists.txt CMakeCache.txt CMakeFiles/3.30.5/CMakeCCompiler.cmake CMakeFiles/3.30.5/CMakeCXXCompiler.cmake CMakeFiles/3.30.5/CMakeRCCompiler.cmake CMakeFiles/3.30.5/CMakeSystem.cmake: phony
 
 
 #############################################
