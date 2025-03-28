@@ -8,5 +8,9 @@ include_directories(include)
 add_executable(main_app
         src/main.cpp
         src/algorithms/QuickSort.cpp
+        src/algorithms/HeapSort.cpp
+        src/data_generation/DataGenerator.cpp
         src/data_types/Person.cpp
+        src/utils/Helpers.cpp
+        src/utils/Timer.cpp
 )

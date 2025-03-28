@@ -1,4 +1,5 @@
 #include "../../include/algorithms/QuickSort.h"
+#include "../../include/data_types/Person.h"
 #include <algorithm>
 
 template <typename T, typename Compare>

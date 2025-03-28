@@ -11,7 +11,6 @@ public:
     double salary;
 
     Person(std::string n = "", int a = 0, double s = 0.0);
-    
     friend std::ostream& operator<<(std::ostream& os, const Person& p);
 };
 

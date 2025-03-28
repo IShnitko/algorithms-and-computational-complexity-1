@@ -12,10 +12,10 @@ include_directories(include)
 add_subdirectory(src)
 add_subdirectory(tests) # Если нужны тесты
 
-# Исполняемый файл
-add_executable(AiZO_project_1 src/main.cpp)
-target_link_libraries(main_app
-        PRIVATE
-        algorithms_lib
-        data_generation_lib
-)
+## Исполняемый файл
+#add_executable(AiZO_project_1 src/main.cpp)
+#target_link_libraries(main_app
+#        PRIVATE
+#        algorithms_lib
+#        data_generation_lib
+#)

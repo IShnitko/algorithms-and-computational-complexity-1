@@ -1,16 +1,10 @@
-//
-// Created by ilysh on 28.03.2025.
-//
+#pragma once
+#include "ArrayType.h"
+#include "../data_types/Person.h"
+#include <vector>
 
-#ifndef DATAGENERATOR_H
-#define DATAGENERATOR_H
+template <typename T>
+void generateArray(T* arr, int size, ArrayType type);
 
-
-
-class DataGenerator {
-
-};
-
-
-
-#endif //DATAGENERATOR_H
+std::vector<Person> generatePeople(int count, ArrayType type);
+std::string arrayTypeToString(ArrayType type);
