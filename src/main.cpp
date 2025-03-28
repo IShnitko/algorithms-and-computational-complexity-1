@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 #include <fstream>
 #include <chrono>
 #include <random>
@@ -6,21 +7,83 @@
 #include <stdexcept>
 #include <algorithm>
 
+#include "../include/algorithms/QuickSort.h"
+#include "../include/data_types/Person.h"
+
 // Шаблонные функции сортировки (заглушки)
 template<typename T>
 void insertionSort(T *arr, int size) {
     // TODO: Реализация сортировки вставками
 }
 
-template<typename T>
-void heapSort(T *arr, int size) {
-    // TODO: Реализация сортировки через кучу
+#include <iostream>
+using namespace std;
+
+// Восстановление свойства max-heap в поддереве с корнем i
+template <typename T>
+void heapify(T* arr, int size, int i) {
+    int largest = i;        // Инициализируем наибольший элемент как корень
+    int left = 2 * i + 1;  // Левый потомок
+    int right = 2 * i + 2; // Правый потомок
+
+    // Если левый потомок больше корня
+    if (left < size && arr[left] > arr[largest])
+        largest = left;
+
+    // Если правый потомок больше текущего наибольшего
+    if (right < size && arr[right] > arr[largest])
+        largest = right;
+
+    // Если наибольший элемент не корень
+    if (largest != i) {
+        swap(arr[i], arr[largest]);
+        // Рекурсивно восстанавливаем поддерево
+        heapify(arr, size, largest);
+    }
 }
 
+// Построение max-heap из массива
+template <typename T>
+void buildMaxHeap(T* arr, int size) {
+    // Начинаем с последнего нелистового узла
+    for (int i = size / 2 - 1; i >= 0; i--)
+        heapify(arr, size, i);
+}
 
-template<typename T>
-void quickSort(T *arr, int size) {
-    // TODO: Реализация быстрой сортировки в версии с объектами как типы данных, обратить внимание как тип данных влияет на конечную скорость
+// Сортировка кучей
+template <typename T>
+void heapSort(T* arr, int size) {
+    // Построение max-heap
+    buildMaxHeap(arr, size);
+
+    // Последовательно извлекаем элементы из кучи
+    for (int i = size - 1; i > 0; i--) {
+        // Перемещаем текущий корень в конец
+        swap(arr[0], arr[i]);
+        // Вызываем heapify на уменьшенной куче
+        heapify(arr, i, 0);
+    }
+}
+
+template <typename T, typename Compare>
+void quickSort(std::vector<T>& arr, int low, int high, Compare comp) {
+    if (low < high) {
+        T pivot = arr[(low + high) / 2];
+        int i = low, j = high;
+
+        while (i <= j) {
+            while (comp(arr[i], pivot)) i++;
+            while (comp(pivot, arr[j])) j--;
+            if (i <= j) {
+                std::swap(arr[i], arr[j]);
+                i++;
+                j--;
+            }
+        }
+
+        if (low < j) quickSort(arr, low, j, comp);
+        if (i < high) quickSort(arr, i, high, comp);
+    }
 }
 
 template<typename T>
@@ -28,7 +91,7 @@ void shellSort(T *arr, int size) {
     // TODO: Реализация сортировки shell (читать инструкцию)
 }
 
-template<typename T> // убрать. Было создано для теста
+template<typename T> // Убрать. Было создано для теста
 void bubbleSort(T *arr, int size) {
     for (int i = 0; i < size - 1; i++) {
         for (int j = 0; j < size - i - 1; j++) {
@@ -120,11 +183,62 @@ std::string arrayTypeToString(ArrayType type) {
     }
 }
 
+class Person { // structure for quickSort on objects
+public:
+    std::string name;
+    int age;
+    double salary;
+
+    Person(std::string n, int a, double s)
+        : name(std::move(n)), age(a), salary(s) {}
+
+    friend std::ostream& operator<<(std::ostream& os, const Person& p) {
+        os << p.name << " (" << p.age << ", " << p.salary << ")";
+        return os;
+    }
+};
+
+std::vector<Person> generatePeople(int count, ArrayType type) {
+    std::vector<Person> people;
+    static std::string names[] = {"Alice", "Bob", "Charlie", "Diana"};
+    std::mt19937 rng(std::random_device{}());
+    std::uniform_int_distribution<int> ageDist(18, 65);
+    std::uniform_real_distribution<double> salaryDist(1000.0, 10000.0);
+
+    for (int i = 0; i < count; ++i) {
+        people.emplace_back(
+            names[rng() % 4],
+            ageDist(rng),
+            salaryDist(rng)
+        );
+    }
+
+    // Сортировка при необходимости
+    switch(type) {
+        case ArrayType::Sorted:
+            std::sort(people.begin(), people.end(),
+                [](auto& a, auto& b) { return a.age < b.age; });
+        break;
+        case ArrayType::ReverseSorted:
+            std::sort(people.rbegin(), people.rend(),
+                [](auto& a, auto& b) { return a.age < b.age; });
+        break;
+        case ArrayType::PartiallySorted:
+            std::sort(people.begin(), people.begin() + people.size()/3,
+                [](auto& a, auto& b) { return a.age < b.age; });
+        std::sort(people.end() - people.size()/3, people.end(),
+            [](auto& a, auto& b) { return a.age < b.age; });
+        break;
+        default: break;
+    }
+
+    return people;
+}
+
 // Основная логика программы
 int main() {
     // Конфигурация
-    // const int testSizes[] = {10000, 20000, 50000, 100000, 200000, 500000, 1000000};
-    const int testSizes[] = {100, 200, 500, 1000, 2000, 5000, 10000};
+    const int testSizes[] = {10000, 20000, 50000, 100000, 200000, 500000, 1000000};
     const ArrayType cases[] = {
         ArrayType::Random, ArrayType::Sorted,
         ArrayType::ReverseSorted, ArrayType::PartiallySorted
@@ -138,7 +252,7 @@ int main() {
     std::cout << "Before sorting: ";
     printArray(testArr, smallSize);
 
-    bubbleSort(testArr, smallSize);
+    quickSort(testArr, smallSize);
 
     std::cout << "After sorting: ";
     printArray(testArr, smallSize);
@@ -160,7 +274,7 @@ int main() {
             const int runs = 100;
 
             for (int i = 0; i < runs; i++) {
-                totalTime += measureTime(bubbleSort<int>, arrCopy, size);
+                totalTime += measureTime(quickSort<int>, arrCopy, size);
                 // Перегенерируем данные для каждого запуска
                 generateArray(arr, size, arrayType);
                 std::copy(arr, arr + size, arrCopy);
