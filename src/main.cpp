@@ -236,7 +236,7 @@ std::vector<Person> generatePeople(int count, ArrayType type) {
 }
 
 // Основная логика программы
-int main() {
+int main() { // TODO: remake new main file according to new project structure
     // Конфигурация
     const int testSizes[] = {10000, 20000, 50000, 100000, 200000, 500000, 1000000};
     const ArrayType cases[] = {
