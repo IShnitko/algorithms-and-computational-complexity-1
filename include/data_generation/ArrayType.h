@@ -1,8 +1,2 @@
 #pragma once
-
-enum class ArrayType {
-    Random,
-    Sorted,
-    ReverseSorted,
-    PartiallySorted
-};
+enum class ArrayType { RANDOM, SORTED, REVERSE_SORTED, PARTIALLY_SORTED };

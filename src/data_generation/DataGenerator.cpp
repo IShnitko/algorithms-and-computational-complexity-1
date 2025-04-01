@@ -1,43 +1,44 @@
-#include "../../include/data_generation/DataGenerator.h"
-#include <algorithm>
+#include "../include/data_generation/DataGenerator.h"
 #include <random>
+#include <algorithm>
 
 template <typename T>
-void generateArray(T* arr, int size, Config::ArrayType type) {
+void generateData(std::vector<T>& data, ArrayType type) {
     std::random_device rd;
     std::mt19937 gen(rd());
 
     if constexpr (std::is_same_v<T, char>) {
-        // Исправление для char
-        std::uniform_int_distribution<int> dist(0, 127); // ASCII-символы
-        for (int i = 0; i < size; i++) arr[i] = static_cast<char>(dist(gen));
+        // Генерация печатных ASCII символов (A-Z)
+        std::uniform_int_distribution<int> dist('A', 'Z');
+        for (auto& val : data) val = static_cast<char>(dist(gen));
     } else if constexpr (std::is_integral_v<T>) {
-        std::uniform_int_distribution<T> dist(1, 1000);
-        for (int i = 0; i < size; i++) arr[i] = dist(gen);
-    } else {
-        std::uniform_real_distribution<T> dist(0.0, 1.0);
-        for (int i = 0; i < size; i++) arr[i] = dist(gen);
+        std::uniform_int_distribution<T> dist(0, 1000);
+        for (auto& val : data) val = dist(gen);
+    } else if constexpr (std::is_floating_point_v<T>) {
+        std::uniform_real_distribution<T> dist(0.0, 1000.0);
+        for (auto& val : data) val = dist(gen);
     }
 
     switch (type) {
-        case Config::ArrayType::RANDOM:
-            break;
-        case Config::ArrayType::SORTED:
-            std::sort(arr, arr + size);
+        case ArrayType::SORTED:
+            std::sort(data.begin(), data.end());
         break;
-        case Config::ArrayType::REVERSE_SORTED:
-            std::sort(arr, arr + size, std::greater<T>());
+        case ArrayType::REVERSE_SORTED:
+            std::sort(data.rbegin(), data.rend());
         break;
-        case Config::ArrayType::PARTIALLY_SORTED:
-            std::sort(arr, arr + size/3);
-        std::sort(arr + 2*size/3, arr + size);
+        case ArrayType::PARTIALLY_SORTED:
+            if (data.size() >= 3) {
+                std::sort(data.begin(), data.begin() + data.size() / 3);
+                std::sort(data.end() - data.size() / 3, data.end());
+            }
         break;
         default:
-            throw std::invalid_argument("Unknown array type");
+            break;
     }
 }
 
 // Явные инстанциации
-template void generateArray<int>(int*, int, Config::ArrayType);
-template void generateArray<double>(double*, int, Config::ArrayType);
-template void generateArray<char>(char*, int, Config::ArrayType);
+template void generateData<int>(std::vector<int>&, ArrayType);
+template void generateData<float>(std::vector<float>&, ArrayType);
+template void generateData<double>(std::vector<double>&, ArrayType);
+template void generateData<char>(std::vector<char>&, ArrayType);

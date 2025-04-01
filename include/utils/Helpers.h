@@ -1,16 +1,17 @@
 #pragma once
-#include <iostream>
-using namespace std;
+#include <vector>
+#include <string>
 
-template <typename T, typename Compare>
-bool isSorted(const T* arr, size_t size, Compare comp) {
-    for(size_t i=0; i<size-1; ++i) {
-        if(!comp(arr[i], arr[i+1])) return false;
-    }
-    return true;
+namespace Helpers {
+    template<typename T>
+    std::vector<T> loadVectorFromFile(const std::string &filename);
+
+    template <typename T>
+    bool isSorted(const T* arr, size_t size);
+
+    template<typename T>
+    void printArray(const std::string &prefix, const std::vector<T> &vec);
+
+    template<typename T>
+    std::vector<T> loadVectorFromFile(const std::string &filename);
 }
-template <typename T>
-void printArray(const T* arr, int size);
-
-template <typename T>
-void loadFromFile(const std::string& filename, T*& arr, int& size);

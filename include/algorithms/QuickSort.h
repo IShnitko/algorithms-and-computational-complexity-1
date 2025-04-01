@@ -1,32 +1,21 @@
 #pragma once
-#include <algorithm> // Для std::swap
+#include <algorithm>
+#include <cstddef>
 
 namespace QuickSort {
-    // Вспомогательная функция
-    template <typename T, typename Compare>
-    void quickSort(T* arr, int low, int high, Compare comp) {
-        if (low < high) {
-            T pivot = arr[(low + high) / 2];
-            int i = low, j = high;
+    template <typename T, typename Compare = std::less<T>>
+    void sort(T* arr, size_t size, Compare comp = Compare{}) {
+        if (size <= 1) return;
+        T pivot = arr[size / 2];
+        size_t i = 0, j = size - 1;
 
-            while (i <= j) {
-                while (comp(arr[i], pivot)) i++;
-                while (comp(pivot, arr[j])) j--;
-                if (i <= j) {
-                    std::swap(arr[i], arr[j]);
-                    i++;
-                    j--;
-                }
-            }
-
-            quickSort(arr, low, j, comp);
-            quickSort(arr, i, high, comp);
+        while (i <= j) {
+            while (comp(arr[i], pivot)) ++i;
+            while (comp(pivot, arr[j])) --j;
+            if (i <= j) std::swap(arr[i++], arr[j--]);
         }
-    }
 
-    // Основной публичный интерфейс
-    template <typename T, typename Compare>
-    void sort(T* arr, size_t size, Compare comp) {
-        quickSort(arr, 0, size - 1, comp);
+        if (j > 0) sort(arr, j + 1, comp);
+        if (i < size) sort(arr + i, size - i, comp);
     }
 }

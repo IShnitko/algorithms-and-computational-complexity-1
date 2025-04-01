@@ -1,4 +1,5 @@
-#include "../../include/utils/Timer.h"
+#include "../include/utils/Timer.h"
+#include <chrono>
 
 void Timer::startTimer() {
     start = std::chrono::high_resolution_clock::now();
