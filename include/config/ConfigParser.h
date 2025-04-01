@@ -2,7 +2,7 @@
 #include <string>
 
 enum class DataType { INT, FLOAT, CHAR, DOUBLE };
-enum class ArrayType { RANDOM, SORTED, REVERSE_SORTED, PARTIALLY_SORTED };
+enum class ArrayType { RANDOM, SORTED, REVERSE_SORTED, PARTIALLY_SORTED, PARTIALLY_SORTED_33, PARTIALLY_SORTED_66 };
 
 struct Config {
     std::string algorithm;

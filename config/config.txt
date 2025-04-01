@@ -1,4 +1,3 @@
+# config/config.txt
 algorithm = quick_sort
-array_type = random          # random, sorted, reverse_sorted, partially_sorted
-data_type = int              # int, float
-#array_size = 10000           # опционально (для малых данных)
+# input_file = ../test_data.txt
