@@ -1,8 +1,9 @@
+// DataGenerator.h
 #pragma once
 #include <vector>
-#include "config/ConfigParser.h" // Добавлено для ArrayType
+#include "config/ConfigParser.h"
 
 class DataGenerator {
 public:
-    static std::vector<int> generate(size_t size, ArrayType array_type); // Исправлен тип
+    static std::vector<int> generate(size_t size, ArrayType type);
 };
