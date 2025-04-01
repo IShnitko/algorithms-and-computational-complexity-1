@@ -4,6 +4,8 @@
 template<typename T>
 class QuickSort : public SortAlgorithm<T> {
     int partition(std::vector<T> &data, int low, int high) {
+        int pivotIndex = low + (high - low)/2;
+        std::swap(data[pivotIndex], data[high]);
         T pivot = data[high];
         int i = low - 1;
         for (int j = low; j <= high - 1; j++) {

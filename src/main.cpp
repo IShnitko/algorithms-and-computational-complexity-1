@@ -30,8 +30,8 @@ void run_file_test(SortAlgorithm<int>* sorter, const std::string& filename) {
 }
 
 void run_benchmark(SortAlgorithm<int>* sorter, ArrayType array_type) {
-    // const std::vector<size_t> sizes = {10000, 20000, 40000, 80000, 160000, 320000, 640000};
-    const std::vector<size_t> sizes = {10000, 20000, 40000, 80000, 160000};
+    const std::vector<size_t> sizes = {10000, 20000, 40000, 80000, 160000, 320000, 640000};
+    // const std::vector<size_t> sizes = {10000, 20000, 40000, 80000, 160000};
     const int runs = 100;
 
     std::cout << "\nBenchmark results (" << Helpers::arrayTypeToString(array_type) << "):\n";

@@ -3,7 +3,7 @@ project(AiZO_project_1)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
+set(CMAKE_CXX_FLAGS "-O3 -march=native")
 # Подключение заголовков
 include_directories(include)
 
