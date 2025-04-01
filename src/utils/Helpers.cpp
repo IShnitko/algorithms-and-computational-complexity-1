@@ -1,31 +1,26 @@
 #include "../include/utils/Helpers.h"
-#include <fstream>
-#include <stdexcept>
+#include <iostream>
 
 namespace Helpers {
     template <typename T>
-    std::vector<T> loadVectorFromFile(const std::string& filename) {
-        std::ifstream file(filename);
-        if (!file) throw std::runtime_error("File not found: " + filename);
-
-        size_t size;
-        file >> size;
-        std::vector<T> data(size);
-        for (size_t i = 0; i < size; ++i) file >> data[i];
-        return data;
+    void printArray(const std::vector<T>& data, size_t max_elements) {
+        std::cout << "[ ";
+        for (size_t i = 0; i < std::min(data.size(), max_elements); ++i) {
+            std::cout << data[i] << " ";
+        }
+        if (data.size() > max_elements) std::cout << "...";
+        std::cout << "]\n";
     }
 
     template <typename T>
-    bool isSorted(const T* arr, size_t size) {
-        for (size_t i = 0; i < size - 1; ++i) {
-            if (arr[i] > arr[i + 1]) return false;
+    bool isSorted(const std::vector<T>& data) {
+        for (size_t i = 0; i < data.size() - 1; ++i) {
+            if (data[i] > data[i + 1]) return false;
         }
         return true;
     }
+
     // Явные инстанциации
-    template bool Helpers::isSorted<int>(const int*, size_t);
-    template std::vector<int> loadVectorFromFile<int>(const std::string&);
-    template std::vector<float> loadVectorFromFile<float>(const std::string&);
-    template std::vector<double> loadVectorFromFile<double>(const std::string&);
-    template std::vector<char> loadVectorFromFile<char>(const std::string&);
+    template void printArray<int>(const std::vector<int>&, size_t);
+    template bool isSorted<int>(const std::vector<int>&);
 }

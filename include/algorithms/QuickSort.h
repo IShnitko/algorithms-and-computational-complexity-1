@@ -1,21 +1,33 @@
 #pragma once
+#include "SortAlgorithm.h"
 #include <algorithm>
-#include <cstddef>
 
-namespace QuickSort {
-    template <typename T, typename Compare = std::less<T>>
-    void sort(T* arr, size_t size, Compare comp = Compare{}) {
-        if (size <= 1) return;
-        T pivot = arr[size / 2];
-        size_t i = 0, j = size - 1;
-
-        while (i <= j) {
-            while (comp(arr[i], pivot)) ++i;
-            while (comp(pivot, arr[j])) --j;
-            if (i <= j) std::swap(arr[i++], arr[j--]);
+template <typename T>
+class QuickSort : public SortAlgorithm<T> {
+private:
+    int partition(std::vector<T>& data, int low, int high) {
+        T pivot = data[high];
+        int i = low - 1;
+        for (int j = low; j <= high - 1; j++) {
+            if (data[j] < pivot) {
+                i++;
+                std::swap(data[i], data[j]);
+            }
         }
-
-        if (j > 0) sort(arr, j + 1, comp);
-        if (i < size) sort(arr + i, size - i, comp);
+        std::swap(data[i + 1], data[high]);
+        return i + 1;
     }
-}
+
+    void quickSort(std::vector<T>& data, int low, int high) {
+        if (low < high) {
+            int pi = partition(data, low, high);
+            quickSort(data, low, pi - 1);
+            quickSort(data, pi + 1, high);
+        }
+    }
+
+public:
+    void sort(std::vector<T>& data) override {
+        quickSort(data, 0, data.size() - 1);
+    }
+};

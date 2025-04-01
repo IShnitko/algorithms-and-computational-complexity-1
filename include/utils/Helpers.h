@@ -3,15 +3,9 @@
 #include <string>
 
 namespace Helpers {
-    template<typename T>
-    std::vector<T> loadVectorFromFile(const std::string &filename);
+    template <typename T>
+    void printArray(const std::vector<T>& data, size_t max_elements = 10); // Значение по умолчанию
 
     template <typename T>
-    bool isSorted(const T* arr, size_t size);
-
-    template<typename T>
-    void printArray(const std::string &prefix, const std::vector<T> &vec);
-
-    template<typename T>
-    std::vector<T> loadVectorFromFile(const std::string &filename);
+    bool isSorted(const std::vector<T>& data); // Убраны лишние параметры
 }

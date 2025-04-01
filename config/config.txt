@@ -1,4 +1,4 @@
 algorithm = quick_sort
-data_type = int
-array_size = 10000
-array_type = random
+array_type = random          # random, sorted, reverse_sorted, partially_sorted
+data_type = int              # int, float
+#array_size = 10000           # опционально (для малых данных)

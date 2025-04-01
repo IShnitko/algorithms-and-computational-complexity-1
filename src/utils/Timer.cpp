@@ -1,11 +1,10 @@
 #include "../include/utils/Timer.h"
-#include <chrono>
 
-void Timer::startTimer() {
-    start = std::chrono::high_resolution_clock::now();
+void Timer::start() {
+    start_time = std::chrono::high_resolution_clock::now(); // Используем новое имя
 }
 
-double Timer::getElapsedMillis() const {
+double Timer::stop() {
     auto end = std::chrono::high_resolution_clock::now();
-    return std::chrono::duration<double, std::milli>(end - start).count();
+    return std::chrono::duration<double, std::milli>(end - start_time).count();
 }
