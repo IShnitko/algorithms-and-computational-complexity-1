@@ -23,7 +23,7 @@ void process_data(const Config& config) {
         auto data = DataGenerator<T>::loadFromFile(config.input_file);
         Helpers::run_test(*sorter, data);  // Теперь это работает
     } else {
-        Helpers::run_benchmark<T>(*sorter, config.array_type);
+        Helpers::run_benchmark<T>(*sorter, config.array_type, config.algorithm);
     }
 }
 

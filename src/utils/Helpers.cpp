@@ -26,15 +26,38 @@ namespace Helpers {
         }
     }
 
-    // Обобщенный бенчмарк
     template<typename T, typename Sorter>
-    void run_benchmark(Sorter &sorter, ArrayType array_type) {
+    void run_benchmark(Sorter &sorter, ArrayType array_type, const std::string& algorithm) {
         const std::vector<size_t> sizes = {10000, 20000, 40000, 80000, 160000, 320000};
         const int runs = 100;
-        std::cout << "\nBenchmark results (" << arrayTypeToString(array_type)
-                << "):\nSize\tAvg Time (ms)\n";
 
-        for (size_t size: sizes) {
+        if (array_type == ArrayType::ALL) {
+            const std::vector test_types = {
+                ArrayType::RANDOM,
+                ArrayType::SORTED,
+                ArrayType::REVERSE_SORTED,
+                ArrayType::PARTIALLY_SORTED_33,
+                ArrayType::PARTIALLY_SORTED_66
+            };
+            for (ArrayType type : test_types) {
+                std::cout << "\nBenchmark of "<< algorithm << ". Array type: (" << arrayTypeToString(type)
+                << "):\nSize\tAvg Time (ms)\n";
+                for (size_t size: sizes) {
+                    double total = 0;
+                    for (int i = 0; i < runs; ++i) {
+                        auto data = DataGenerator<T>::generate(size, type);
+                        Timer timer;
+                        timer.start();
+                        sorter.sort(data);
+                        total += timer.stop();
+                    }
+                    std::cout << size << "\t" << total / runs << "\n";
+                }
+            }
+        } else {
+            std::cout << "\nBenchmark results (" << arrayTypeToString(array_type)
+                << "):\nSize\tAvg Time (ms)\n";
+            for (size_t size: sizes) {
             double total = 0;
             for (int i = 0; i < runs; ++i) {
                 auto data = DataGenerator<T>::generate(size, array_type);
@@ -45,6 +68,8 @@ namespace Helpers {
             }
             std::cout << size << "\t" << total / runs << "\n";
         }
+        }
+
     }
 
     template<typename T>
@@ -74,7 +99,6 @@ namespace Helpers {
             default: return "UNKNOWN ARRAY TYPE";
         }
     }
-
     std::string dataTypeToString(const DataType type) {
         switch (type) {
             case DataType::INT: return "INT";
@@ -93,10 +117,10 @@ template void Helpers::run_test<double, SortAlgorithm<double>>(SortAlgorithm<dou
 template void Helpers::run_test<char, SortAlgorithm<char>>(SortAlgorithm<char>&, std::vector<char>&);
 
 // Явное инстанцирование для run_benchmark
-template void Helpers::run_benchmark<int, SortAlgorithm<int>>(SortAlgorithm<int>&, ArrayType);
-template void Helpers::run_benchmark<float, SortAlgorithm<float>>(SortAlgorithm<float>&, ArrayType);
-template void Helpers::run_benchmark<double, SortAlgorithm<double>>(SortAlgorithm<double>&, ArrayType);
-template void Helpers::run_benchmark<char, SortAlgorithm<char>>(SortAlgorithm<char>&, ArrayType);
+template void Helpers::run_benchmark<int, SortAlgorithm<int>>(SortAlgorithm<int>&, ArrayType, const std::string&);
+template void Helpers::run_benchmark<float, SortAlgorithm<float>>(SortAlgorithm<float>&, ArrayType, const std::string&);
+template void Helpers::run_benchmark<double, SortAlgorithm<double>>(SortAlgorithm<double>&, ArrayType, const std::string&);
+template void Helpers::run_benchmark<char, SortAlgorithm<char>>(SortAlgorithm<char>&, ArrayType, const std::string&);
 
 // Явное инстанцирование для printArray
 template void Helpers::printArray<int>(const std::vector<int>&, size_t);

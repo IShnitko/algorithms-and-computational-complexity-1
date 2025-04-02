@@ -32,6 +32,7 @@ Config ConfigParser::parse(const std::string &filename) {
             else if (value == "reverse_sorted") config.array_type = ArrayType::REVERSE_SORTED;
             else if (value == "partially_sorted_33") config.array_type = ArrayType::PARTIALLY_SORTED_33;
             else if (value == "partially_sorted_66") config.array_type = ArrayType::PARTIALLY_SORTED_66;
+            else if (value == "all") config.array_type = ArrayType::ALL;
         } else if (key == "input_file") {
             config.input_file = value;
         }

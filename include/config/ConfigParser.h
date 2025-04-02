@@ -3,7 +3,7 @@
 
 enum class DataType { INT, FLOAT, CHAR, DOUBLE };
 
-enum class ArrayType { RANDOM, SORTED, REVERSE_SORTED, PARTIALLY_SORTED_33, PARTIALLY_SORTED_66 };
+enum class ArrayType { RANDOM, SORTED, REVERSE_SORTED, PARTIALLY_SORTED_33, PARTIALLY_SORTED_66, ALL};
 
 struct Config {
     std::string algorithm;

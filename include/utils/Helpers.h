@@ -9,7 +9,7 @@ namespace Helpers {
     void run_test(Sorter& sorter, std::vector<T>& data);
 
     template<typename T, typename Sorter>
-    void run_benchmark(Sorter& sorter, ArrayType array_type);
+    void run_benchmark(Sorter& sorter, ArrayType array_type, const std::string& algorithm);
 
     template<typename T>
     void printArray(const std::vector<T>& data, size_t max_elements);

@@ -1,5 +1,8 @@
 # config/config.txt
-algorithm = quick_sort
+#insertion_sort, heap_sort, quick_sort
+algorithm = insertion_sort
+#int, float, double, char
 data_type = int
-array_type = random
+#random, sorted, reverse_sorted, partially_sorted_33, partially_sorted_66, all
+array_type = all
 # input_file = ../test_data.txt
