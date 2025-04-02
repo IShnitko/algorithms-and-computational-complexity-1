@@ -30,9 +30,8 @@ Config ConfigParser::parse(const std::string &filename) {
             if (value == "random") config.array_type = ArrayType::RANDOM;
             else if (value == "sorted") config.array_type = ArrayType::SORTED;
             else if (value == "reverse_sorted") config.array_type = ArrayType::REVERSE_SORTED;
-            else if (value == "partially_sorted") config.array_type = ArrayType::PARTIALLY_SORTED;
-        } else if (key == "array_size") {
-            config.array_size = std::stoul(value);
+            else if (value == "partially_sorted_33") config.array_type = ArrayType::PARTIALLY_SORTED_33;
+            else if (value == "partially_sorted_66") config.array_type = ArrayType::PARTIALLY_SORTED_66;
         } else if (key == "input_file") {
             config.input_file = value;
         }
