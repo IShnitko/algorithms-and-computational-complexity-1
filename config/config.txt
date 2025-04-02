@@ -5,4 +5,7 @@ algorithm = insertion_sort
 data_type = int
 #random, sorted, reverse_sorted, partially_sorted_33, partially_sorted_66, all
 array_type = all
-# input_file = ../test_data.txt
+# input file uses this template:
+# {size}
+# {values separated by space}
+input_file = ../test_data.txt

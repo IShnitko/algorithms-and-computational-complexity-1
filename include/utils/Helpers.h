@@ -6,7 +6,7 @@
 namespace Helpers {
     // Объявления шаблонных функций
     template<typename T, typename Sorter>
-    void run_test(Sorter& sorter, std::vector<T>& data);
+    void run_test(Sorter& sorter, std::vector<T>& data, const std::string&);
 
     template<typename T, typename Sorter>
     void run_benchmark(Sorter& sorter, ArrayType array_type, const std::string& algorithm);

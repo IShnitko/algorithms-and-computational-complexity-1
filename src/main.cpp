@@ -21,7 +21,7 @@ void process_data(const Config& config) {
 
     if (!config.input_file.empty()) {
         auto data = DataGenerator<T>::loadFromFile(config.input_file);
-        Helpers::run_test(*sorter, data);  // Теперь это работает
+        Helpers::run_test(*sorter, data, config.algorithm);  // Теперь это работает
     } else {
         Helpers::run_benchmark<T>(*sorter, config.array_type, config.algorithm);
     }

@@ -7,7 +7,7 @@
 
 namespace Helpers {
     template<typename T, typename Sorter>
-    void run_test(Sorter &sorter, std::vector<T> &data) {
+    void run_test(Sorter &sorter, std::vector<T> &data, const std::string& algorithm) {
         std::cout << "Original array (" << typeid(T).name() << ", "
                 << data.size() << " elements):\n";
         printArray(data, 20);
@@ -17,7 +17,7 @@ namespace Helpers {
         sorter.sort(data);
         double time = timer.stop();
 
-        std::cout << "Sorted array:\n";
+        std::cout << "Sorted array by "<< algorithm <<":\n";
         printArray(data, 20);
         std::cout << "Time: " << time << " ms\n";
 
@@ -111,10 +111,10 @@ namespace Helpers {
 
 }
 
-template void Helpers::run_test<int, SortAlgorithm<int>>(SortAlgorithm<int>&, std::vector<int>&);
-template void Helpers::run_test<float, SortAlgorithm<float>>(SortAlgorithm<float>&, std::vector<float>&);
-template void Helpers::run_test<double, SortAlgorithm<double>>(SortAlgorithm<double>&, std::vector<double>&);
-template void Helpers::run_test<char, SortAlgorithm<char>>(SortAlgorithm<char>&, std::vector<char>&);
+template void Helpers::run_test<int, SortAlgorithm<int>>(SortAlgorithm<int>&, std::vector<int>&, const std::string&);
+template void Helpers::run_test<float, SortAlgorithm<float>>(SortAlgorithm<float>&, std::vector<float>&, const std::string&);
+template void Helpers::run_test<double, SortAlgorithm<double>>(SortAlgorithm<double>&, std::vector<double>&, const std::string&);
+template void Helpers::run_test<char, SortAlgorithm<char>>(SortAlgorithm<char>&, std::vector<char>&, const std::string&);
 
 // Явное инстанцирование для run_benchmark
 template void Helpers::run_benchmark<int, SortAlgorithm<int>>(SortAlgorithm<int>&, ArrayType, const std::string&);
