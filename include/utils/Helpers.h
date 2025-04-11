@@ -17,7 +17,6 @@ namespace Helpers {
     template<typename T>
     bool isSorted(const std::vector<T>& data);
 
-    // Нешаблонные функции
     std::string arrayTypeToString(ArrayType type);
     std::string dataTypeToString(DataType type);
 }

@@ -14,7 +14,7 @@ Config ConfigParser::parse(const std::string &filename) {
         line.erase(std::remove_if(line.begin(), line.end(), ::isspace), line.end());
         if (line.empty() || line[0] == '#') continue;
 
-        size_t delimiter = line.find('=');
+        const size_t delimiter = line.find('=');
         if (delimiter == std::string::npos) continue;
 
         std::string key = line.substr(0, delimiter);

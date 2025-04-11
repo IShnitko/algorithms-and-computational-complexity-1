@@ -28,7 +28,7 @@ namespace Helpers {
 
     template<typename T, typename Sorter>
     void run_benchmark(Sorter &sorter, ArrayType array_type, const std::string& algorithm) {
-        const std::vector<size_t> sizes = {10000, 20000, 40000, 80000, 160000, 320000};
+        const std::vector<size_t> sizes = {10000, 20000, 40000, 60000, 80000, 160000};
         const int runs = 100;
 
         if (array_type == ArrayType::ALL) {
@@ -116,19 +116,16 @@ template void Helpers::run_test<float, SortAlgorithm<float>>(SortAlgorithm<float
 template void Helpers::run_test<double, SortAlgorithm<double>>(SortAlgorithm<double>&, std::vector<double>&, const std::string&);
 template void Helpers::run_test<char, SortAlgorithm<char>>(SortAlgorithm<char>&, std::vector<char>&, const std::string&);
 
-// Явное инстанцирование для run_benchmark
 template void Helpers::run_benchmark<int, SortAlgorithm<int>>(SortAlgorithm<int>&, ArrayType, const std::string&);
 template void Helpers::run_benchmark<float, SortAlgorithm<float>>(SortAlgorithm<float>&, ArrayType, const std::string&);
 template void Helpers::run_benchmark<double, SortAlgorithm<double>>(SortAlgorithm<double>&, ArrayType, const std::string&);
 template void Helpers::run_benchmark<char, SortAlgorithm<char>>(SortAlgorithm<char>&, ArrayType, const std::string&);
 
-// Явное инстанцирование для printArray
 template void Helpers::printArray<int>(const std::vector<int>&, size_t);
 template void Helpers::printArray<float>(const std::vector<float>&, size_t);
 template void Helpers::printArray<double>(const std::vector<double>&, size_t);
 template void Helpers::printArray<char>(const std::vector<char>&, size_t);
 
-// Явное инстанцирование для isSorted
 template bool Helpers::isSorted<int>(const std::vector<int>&);
 template bool Helpers::isSorted<float>(const std::vector<float>&);
 template bool Helpers::isSorted<double>(const std::vector<double>&);

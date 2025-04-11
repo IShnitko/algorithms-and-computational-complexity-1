@@ -53,3 +53,10 @@
 15	1386	7653286310421541	CMakeFiles/AiZO_project_1.dir/src/utils/Helpers.cpp.obj	8eab71c6b795bde5
 6	1938	7653286543747933	CMakeFiles/AiZO_project_1.dir/src/main.cpp.obj	5c9bdb2866229e62
 1939	2101	7653286563074447	AiZO_project_1.exe	da35e0e64d075c5
+42	435	7660855582978738	CMakeFiles/AiZO_project_1.dir/src/utils/Timer.cpp.obj	3c13d634787f749f
+30	985	7660855582863393	CMakeFiles/AiZO_project_1.dir/src/config/ConfigParser.cpp.obj	b21f564c25e98358
+36	1343	7660855582918815	CMakeFiles/AiZO_project_1.dir/src/utils/Helpers.cpp.obj	8eab71c6b795bde5
+24	2209	7660855582793195	CMakeFiles/AiZO_project_1.dir/src/main.cpp.obj	5c9bdb2866229e62
+2210	2640	7660855604651034	AiZO_project_1.exe	da35e0e64d075c5
+6	1269	7660869743658330	CMakeFiles/AiZO_project_1.dir/src/utils/Helpers.cpp.obj	8eab71c6b795bde5
+1270	1428	7660869756291295	AiZO_project_1.exe	da35e0e64d075c5

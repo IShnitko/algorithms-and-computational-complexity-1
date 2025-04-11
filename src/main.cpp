@@ -10,6 +10,7 @@
 template<typename T>
 std::unique_ptr<SortAlgorithm<T>> create_sorter(const std::string& algorithm) {
     if (algorithm == "insertion_sort") return std::make_unique<InsertionSort<T>>();
+    if (algorithm == "insertion_binary_sort") return std::make_unique<InsertionSort<T>>();
     if (algorithm == "heap_sort") return std::make_unique<HeapSort<T>>();
     if (algorithm == "quick_sort") return std::make_unique<QuickSort<T>>();
     throw std::runtime_error("Unknown algorithm: " + algorithm);
@@ -21,7 +22,7 @@ void process_data(const Config& config) {
 
     if (!config.input_file.empty()) {
         auto data = DataGenerator<T>::loadFromFile(config.input_file);
-        Helpers::run_test(*sorter, data, config.algorithm);  // Теперь это работает
+        Helpers::run_test(*sorter, data, config.algorithm);
     } else {
         Helpers::run_benchmark<T>(*sorter, config.array_type, config.algorithm);
     }

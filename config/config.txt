@@ -1,6 +1,6 @@
 # config/config.txt
-#insertion_sort, heap_sort, quick_sort
-algorithm = insertion_sort
+#insertion_sort, insertion_binary_sort, heap_sort, quick_sort
+algorithm = insertion_binary_sort
 #int, float, double, char
 data_type = int
 #random, sorted, reverse_sorted, partially_sorted_33, partially_sorted_66, all
@@ -8,4 +8,4 @@ array_type = all
 # input file uses this template:
 # {size}
 # {values separated by space}
-input_file = ../test_data.txt
+#input_file = ../test_data.txt
