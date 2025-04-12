@@ -11,7 +11,7 @@ This repository contains the implementation and analysis of sorting algorithms a
 - **Implemented Algorithms**:
   - **Insertion Sort** (Standard and Binary variants)
   - **Heap Sort**
-  - **Quick Sort** (with configurable pivot selection strategies)
+  - **Quick Sort**
 - **Data Types Support**: `int`, `float`, `char` (using C++ templates).
 - **Input Scenarios**:
   - Randomly generated arrays
