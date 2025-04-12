@@ -1,3 +1,0 @@
-C:/Users/ilysh/dev_cpp/AiZO_project_1/cmake-build-debug/CMakeFiles/AiZO_project_1.dir
-C:/Users/ilysh/dev_cpp/AiZO_project_1/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/ilysh/dev_cpp/AiZO_project_1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
