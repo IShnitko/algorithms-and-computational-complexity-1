@@ -56,23 +56,6 @@ To run the program with desired parameters update the existing config/config.txt
    - Post-sort checks ensure correct ordering.
    - Debug mode allows visualization of small arrays.
 
-### Tested Scenarios:
-| Algorithm           | Input Sizes         | Data Types | Input Distributions       |
-|---------------------|---------------------|------------|---------------------------|
-| Insertion Sort      | 10⁴ – 16·10⁴        | int, float | All                       |
-| Binary Insertion    | 10⁴ – 16·10⁴        | int, char  | Random, Partially Sorted  |
-| Heap Sort           | 10⁴ – 16·10⁴        | int, float | All                       |
-| Quick Sort          | 10⁴ – 16·10⁴        | All        | All (with pivot variants) |
-
-## 📈 Results and Analysis
-
-Example results for **Quick Sort** (Intel i7-9700K, averaged over 100 runs):
-
-| Input Size | int (ms) | float (ms) | char (ms) |
-|------------|----------|------------|-----------|
-| 10,000     | 0.53     | 0.65       | 2.29      |
-| 160,000    | 21.89    | 12.07      | 371.16    |
-
 For detailed results, see the [project report](AiZO-P1-IShnitko.pdf).
 
 ## 📂 Repository Structure
