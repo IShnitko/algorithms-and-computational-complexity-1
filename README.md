@@ -1,4 +1,3 @@
-```markdown
 # Algorithms and Computational Complexity - Project 1
 
 [![C++](https://img.shields.io/badge/C++-17-blue.svg)](https://en.cppreference.com/w/)
@@ -10,9 +9,9 @@ This repository contains the implementation and analysis of sorting algorithms a
 
 ### Key Features:
 - **Implemented Algorithms**:
-  - Insertion Sort (Standard and Binary variants)
-  - Heap Sort
-  - Quick Sort (with configurable pivot selection strategies)
+  - **Insertion Sort** (Standard and Binary variants)
+  - **Heap Sort**
+  - **Quick Sort** (with configurable pivot selection strategies)
 - **Data Types Support**: `int`, `float`, `char` (using C++ templates).
 - **Input Scenarios**:
   - Randomly generated arrays
@@ -23,8 +22,8 @@ This repository contains the implementation and analysis of sorting algorithms a
   - Detailed analysis of time complexity trends
 
 ### Requirements:
-- C++17 compatible compiler (tested with GCC 10+, Clang 12+)
-- CMake 3.12+ (for building)
+- **C++17** compatible compiler (tested with GCC 10+, Clang 12+)
+- **CMake 3.12+** (for building)
 
 ## 🚀 Getting Started
 
@@ -36,22 +35,13 @@ This repository contains the implementation and analysis of sorting algorithms a
    ```
 2. Build with CMake:
    ```bash
-   mkdir build && cd build
-   cmake ..
-   make
+  mkdir build && cd build
+  cmake ..
+  make
    ```
 
 ### Usage:
-Run the program with desired parameters (example):
-```bash
-./sorting_analysis --algorithm=quick_sort --size=10000 --data_type=int --input=random
-```
-
-#### Command-line Arguments:
-- `--algorithm`: `insertion_sort`, `binary_insertion_sort`, `heap_sort`, `quick_sort`
-- `--size`: Array size (e.g., `10000`, `20000`, `40000`)
-- `--data_type`: `int`, `float`, `char`
-- `--input`: `random`, `sorted`, `reverse_sorted`, `part_sorted_33`, `part_sorted_66`
+To run the program with desired parameters update the existing config/config.txt file.
 
 ## 📊 Experiment Design
 
