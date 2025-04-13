@@ -42,7 +42,7 @@ rule CUSTOM_COMMAND
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = C:\Users\ilysh\AppData\Local\Programs\CLion\bin\cmake\win\x64\bin\cmake.exe --regenerate-during-build -SC:\Users\ilysh\dev_cpp\AiZO_project_1 -BC:\Users\ilysh\dev_cpp\AiZO_project_1\cmake-build-debug
+  command = C:\mingw64\bin\cmake.exe --regenerate-during-build -SC:\Users\ilysh\dev_cpp\AiZO_project_1 -BC:\Users\ilysh\dev_cpp\AiZO_project_1\cmake-build-debug
   description = Re-running CMake...
   generator = 1
 

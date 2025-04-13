@@ -127,7 +127,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "5"
+			"value" : "2"
 		},
 		{
 			"name" : "CMAKE_COLOR_DIAGNOSTICS",
@@ -151,7 +151,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/bin/cmake.exe"
+			"value" : "C:/mingw64/bin/cmake.exe"
 		},
 		{
 			"name" : "CMAKE_CPACK_COMMAND",
@@ -163,7 +163,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/bin/cpack.exe"
+			"value" : "C:/mingw64/bin/cpack.exe"
 		},
 		{
 			"name" : "CMAKE_CTEST_COMMAND",
@@ -175,7 +175,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/bin/ctest.exe"
+			"value" : "C:/mingw64/bin/ctest.exe"
 		},
 		{
 			"name" : "CMAKE_CXX_COMPILER",
@@ -190,7 +190,7 @@
 					"value" : "CXX compiler"
 				}
 			],
-			"type" : "FILEPATH",
+			"type" : "STRING",
 			"value" : "C:/Users/ilysh/AppData/Local/Programs/CLion/bin/mingw/bin/g++.exe"
 		},
 		{
@@ -334,7 +334,7 @@
 					"value" : "C compiler"
 				}
 			],
-			"type" : "FILEPATH",
+			"type" : "STRING",
 			"value" : "C:/Users/ilysh/AppData/Local/Programs/CLion/bin/mingw/bin/gcc.exe"
 		},
 		{
@@ -1063,7 +1063,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/ilysh/AppData/Local/Programs/CLion/bin/cmake/win/x64/share/cmake-3.30"
+			"value" : "C:/mingw64/share/cmake-3.30"
 		},
 		{
 			"name" : "CMAKE_SHARED_LINKER_FLAGS",
