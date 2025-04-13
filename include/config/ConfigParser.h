@@ -9,9 +9,16 @@ enum class DataType {
     CHAR,   // Pojedyncze znaki (np. 'a', 'Z')
     DOUBLE  // Liczby zmiennoprzecinkowe podwójnej precyzji (np. 3.141592)
 };
-
+enum class Mode {
+    DEFAULT,
+    TEST_FILE,
+    TEST_NEW_SAVE,
+    TEST_NEW_NOSAVE
+};
 // Konfiguracja programu wczytana z pliku
 struct Config {
+    Mode mode;
+    int size;
     std::string algorithm;   // Nazwa algorytmu sortowania (np. "quick_sort")
     DataType data_type;      // Typ generowanych/przetwarzanych danych
     ArrayType array_type;    // Typ tablicy (np. losowa, posortowana)

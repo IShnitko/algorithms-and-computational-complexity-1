@@ -2,6 +2,7 @@
 #include <fstream>
 #include <random>
 #include <algorithm>
+#include <iostream>
 
 template<typename DataType>
 std::vector<DataType> DataGenerator<DataType>::generate(size_t size, const ArrayType array_type) {
@@ -64,26 +65,56 @@ std::vector<DataType> DataGenerator<DataType>::generate(size_t size, const Array
 }
 
 template<typename DataType>
+std::vector<DataType> DataGenerator<DataType>::createData(
+    size_t size,
+    ArrayType array_type,
+    const std::string& input_file
+) {
+    std::vector<DataType> data;
+
+    if (!input_file.empty()) {
+        try {
+            data = loadFromFile(input_file);
+            return data;
+        }
+        catch (const std::runtime_error& e) {
+            std::cerr << "[WARNING] Failed to load data from '" << input_file
+                      << "': " << e.what() << "\nGenerating new data...\n";
+        }
+        catch (const std::exception& e) {
+            std::cerr << "[WARNING] Error processing file '" << input_file
+                      << "': " << e.what() << "\nGenerating new data...\n";
+        }
+        catch (...) {
+            std::cerr << "[WARNING] Unknown error occurred while loading '"
+                      << input_file << "'\nGenerating new data...\n";
+        }
+    }
+    return generate(size, array_type);
+}
+template<typename DataType>
 std::vector<DataType> DataGenerator<DataType>::loadFromFile(const std::string& filename) {
-    // Wczytywanie danych z pliku
     std::ifstream file(filename);
-    if (!file) throw std::runtime_error("Cannot open file: " + filename);
+    if (!file.is_open()) {
+        throw std::runtime_error("Cannot open file: " + filename);
+    }
 
     size_t size;
-    file >> size;  // Pierwsza wartość w pliku to rozmiar danych
+    file >> size;
 
     std::vector<DataType> data;
     data.reserve(size);
     DataType value;
-
-    // Wczytywanie kolejnych wartości
     while (file >> value && data.size() < size) {
         data.push_back(value);
     }
 
+    if (data.size() != size) {
+        throw std::runtime_error("File size mismatch");
+    }
+
     return data;
 }
-
 // Jawne instancje szablonu dla obsługiwanych typów
 template class DataGenerator<int>;
 template class DataGenerator<float>;

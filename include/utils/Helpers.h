@@ -6,13 +6,32 @@
 namespace Helpers {
     // Szablonowe funkcje pomocnicze:
 
-    // Uruchamia pojedynczy test sortowania
     template<typename T, typename Sorter>
-    void run_test(Sorter& sorter, std::vector<T>& data, const std::string&);
+     void run_mode_default(Sorter& sorter, ArrayType array_type, const std::string& algorithm);
 
-    // Wykonuje pomiary wydajności dla serii danych
     template<typename T, typename Sorter>
-    void run_benchmark(Sorter& sorter, ArrayType array_type, const std::string& algorithm);
+    void run_test_file(Sorter& sorter, std::vector<T>& data, const std::string& algorithm);
+
+    // Новые методы
+    template<typename T, typename Sorter>
+    void run_test_new_save(
+        Sorter& sorter,
+        size_t size,
+        ArrayType array_type,
+        const std::string& algorithm,
+        const std::string& filename
+    );
+
+    template<typename T, typename Sorter>
+    void run_test_new_nosave(
+        Sorter& sorter,
+        size_t size,
+        ArrayType array_type,
+        const std::string& algorithm
+    );
+
+    template<typename T>
+    void saveToFile(const std::vector<T>& data, const std::string& filename);
 
     // Wyświetla fragment tablicy z ograniczeniem elementów
     template<typename T>

@@ -1,48 +1,66 @@
-#include "../include/config/ConfigParser.h"
+#include "config/ConfigParser.h"
 #include <fstream>
 #include <sstream>
 #include <algorithm>
+#include <stdexcept>
 
-Config ConfigParser::parse(const std::string &filename) {
-    // Otwarcie pliku konfiguracyjnego
-    std::ifstream file(filename);
-    if (!file.is_open()) throw std::runtime_error("Cannot open config file");
+using namespace std;
+
+Config ConfigParser::parse(const string &filename) {
+    ifstream file(filename);
+    if (!file.is_open()) throw runtime_error("Cannot open config file: " + filename);
 
     Config config;
-    std::string line;
+    string line;
 
-    // Przetwarzanie każdej linii pliku
-    while (std::getline(file, line)) {
-        // Usuwanie białych znaków i komentarzy
-        line.erase(std::remove_if(line.begin(), line.end(), ::isspace), line.end());
+    while (getline(file, line)) {
+        line.erase(remove_if(line.begin(), line.end(), ::isspace), line.end());
         if (line.empty() || line[0] == '#') continue;
 
-        // Podział linii na klucz i wartość
-        const size_t delimiter = line.find('=');
-        if (delimiter == std::string::npos) continue;
+        size_t delimiter = line.find('=');
+        if (delimiter == string::npos) continue;
 
-        std::string key = line.substr(0, delimiter);
-        std::string value = line.substr(delimiter + 1);
+        string key = line.substr(0, delimiter);
+        string value = line.substr(delimiter + 1);
 
-        // Mapowanie wartości konfiguracyjnych
         if (key == "algorithm") {
-            config.algorithm = value;  // Nazwa algorytmu
-        } else if (key == "data_type") {
-            // Typ danych
+            config.algorithm = value;
+        }
+        else if (key == "data_type") {
             if (value == "int") config.data_type = DataType::INT;
             else if (value == "float") config.data_type = DataType::FLOAT;
             else if (value == "char") config.data_type = DataType::CHAR;
             else if (value == "double") config.data_type = DataType::DOUBLE;
-        } else if (key == "array_type") {
-            // Typ generowanej tablicy
+            else throw invalid_argument("Unknown data_type: " + value);
+        }
+        else if (key == "array_type") {
             if (value == "random") config.array_type = ArrayType::RANDOM;
             else if (value == "sorted") config.array_type = ArrayType::SORTED;
             else if (value == "reverse_sorted") config.array_type = ArrayType::REVERSE_SORTED;
             else if (value == "partially_sorted_33") config.array_type = ArrayType::PARTIALLY_SORTED_33;
             else if (value == "partially_sorted_66") config.array_type = ArrayType::PARTIALLY_SORTED_66;
             else if (value == "all") config.array_type = ArrayType::ALL;
-        } else if (key == "input_file") {
-            config.input_file = value;  // Ścieżka do pliku z danymi
+            else throw invalid_argument("Unknown array_type: " + value);
+        }
+        else if (key == "mode") {
+            if (value == "default") config.mode = Mode::DEFAULT;
+            else if (value == "test_file") config.mode = Mode::TEST_FILE;
+            else if (value == "test_new_save") config.mode = Mode::TEST_NEW_SAVE;
+            else if (value == "test_new_nosave") config.mode = Mode::TEST_NEW_NOSAVE;
+            else throw invalid_argument("Unknown mode: " + value);
+        }
+        else if (key == "size") {
+            config.size = stoi(value);
+        }
+        else if (key == "input_file") {
+            config.input_file = value;
+        }
+    }
+
+    // Валидация параметров
+    if (config.mode == Mode::TEST_FILE || config.mode == Mode::TEST_NEW_SAVE) {
+        if (config.input_file.empty()) {
+            throw runtime_error("input_file is required for this mode");
         }
     }
 

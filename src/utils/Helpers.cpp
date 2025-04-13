@@ -1,5 +1,6 @@
 #include "../include/utils/Helpers.h"
 #include <iostream>
+#include <fstream>
 #include <algorithms/SortAlgorithm.h>
 #include <config/ConfigParser.h>
 #include <data_generation/DataGenerator.h>
@@ -8,7 +9,48 @@
 namespace Helpers {
     // Funkcja testująca pojedyncze sortowanie na danych z pliku
     template<typename T, typename Sorter>
-    void run_test(Sorter &sorter, std::vector<T> &data, const std::string& algorithm) {
+    void run_test_new_save(
+        Sorter& sorter,
+        size_t size,
+        ArrayType array_type,
+        const std::string& algorithm,
+        const std::string& filename
+    ) {
+        auto data = DataGenerator<T>::generate(size, array_type);
+        saveToFile(data, filename);
+
+        std::cout << "Generated array (" << typeid(T).name() << "):\n";
+        printArray(data);
+
+        auto data_copy = data;
+        sorter.sort(data_copy);
+
+        std::cout << "Sorted by " << algorithm << ":\n";
+        printArray(data_copy);
+    }
+
+    // Новый метод: генерация без сохранения
+    template<typename T, typename Sorter>
+    void run_test_new_nosave(
+        Sorter& sorter,
+        size_t size,
+        ArrayType array_type,
+        const std::string& algorithm
+    ) {
+        auto data = DataGenerator<T>::generate(size, array_type);
+
+        std::cout << "Generated array (" << typeid(T).name() << "):\n";
+        printArray(data);
+
+        auto data_copy = data;
+        sorter.sort(data_copy);
+
+        std::cout << "Sorted by " << algorithm << ":\n";
+        printArray(data_copy);
+    }
+
+    template<typename T, typename Sorter>
+    void run_test_file(Sorter &sorter, std::vector<T> &data, const std::string& algorithm) {
         std::cout << "Original array (" << data.size() << " elements):\n";
         printArray(data);
 
@@ -29,7 +71,7 @@ namespace Helpers {
 
     // Funkcja wykonująca pomiary wydajności dla różnych rozmiarów danych
     template<typename T, typename Sorter>
-    void run_benchmark(Sorter &sorter, ArrayType array_type, const std::string& algorithm) {
+    void run_mode_default(Sorter &sorter, ArrayType array_type, const std::string& algorithm) {
         const std::vector<size_t> sizes = {10000, 20000, 40000, 60000, 80000, 160000};
         const int runs = 100;  // Liczba powtórzeń dla uśredniania wyników
 
@@ -116,18 +158,55 @@ namespace Helpers {
             default: return "UNKNOWN DATATYPE";
         }
     }
+    template<typename T>
+    void saveToFile(const std::vector<T>& data, const std::string& filename) {
+
+        std::remove(filename.c_str());
+
+        std::ofstream file(filename);
+        if (!file.is_open()) {
+            throw std::runtime_error("Cannot open file: " + filename);
+        }
+
+        file << data.size() << "\n";
+
+        for (const auto& item : data) {
+            file << item << "\n";
+        }
+    }
 }
 
 // Jawne instancje szablonów dla obsługiwanych typów danych
-template void Helpers::run_test<int, SortAlgorithm<int>>(SortAlgorithm<int>&, std::vector<int>&, const std::string&);
-template void Helpers::run_test<float, SortAlgorithm<float>>(SortAlgorithm<float>&, std::vector<float>&, const std::string&);
-template void Helpers::run_test<double, SortAlgorithm<double>>(SortAlgorithm<double>&, std::vector<double>&, const std::string&);
-template void Helpers::run_test<char, SortAlgorithm<char>>(SortAlgorithm<char>&, std::vector<char>&, const std::string&);
+// Явные инстанции для всех шаблонных функций
 
-template void Helpers::run_benchmark<int, SortAlgorithm<int>>(SortAlgorithm<int>&, ArrayType, const std::string&);
-template void Helpers::run_benchmark<float, SortAlgorithm<float>>(SortAlgorithm<float>&, ArrayType, const std::string&);
-template void Helpers::run_benchmark<double, SortAlgorithm<double>>(SortAlgorithm<double>&, ArrayType, const std::string&);
-template void Helpers::run_benchmark<char, SortAlgorithm<char>>(SortAlgorithm<char>&, ArrayType, const std::string&);
+// Для run_mode_default
+template void Helpers::run_mode_default<int, SortAlgorithm<int>>(SortAlgorithm<int>&, ArrayType, const std::string&);
+template void Helpers::run_mode_default<float, SortAlgorithm<float>>(SortAlgorithm<float>&, ArrayType, const std::string&);
+template void Helpers::run_mode_default<double, SortAlgorithm<double>>(SortAlgorithm<double>&, ArrayType, const std::string&);
+template void Helpers::run_mode_default<char, SortAlgorithm<char>>(SortAlgorithm<char>&, ArrayType, const std::string&);
+
+// Для run_test_file
+template void Helpers::run_test_file<int, SortAlgorithm<int>>(SortAlgorithm<int>&, std::vector<int>&, const std::string&);
+template void Helpers::run_test_file<float, SortAlgorithm<float>>(SortAlgorithm<float>&, std::vector<float>&, const std::string&);
+template void Helpers::run_test_file<double, SortAlgorithm<double>>(SortAlgorithm<double>&, std::vector<double>&, const std::string&);
+template void Helpers::run_test_file<char, SortAlgorithm<char>>(SortAlgorithm<char>&, std::vector<char>&, const std::string&);
+
+// Для run_test_new_save
+template void Helpers::run_test_new_save<int, SortAlgorithm<int>>(SortAlgorithm<int>&, size_t, ArrayType, const std::string&, const std::string&);
+template void Helpers::run_test_new_save<float, SortAlgorithm<float>>(SortAlgorithm<float>&, size_t, ArrayType, const std::string&, const std::string&);
+template void Helpers::run_test_new_save<double, SortAlgorithm<double>>(SortAlgorithm<double>&, size_t, ArrayType, const std::string&, const std::string&);
+template void Helpers::run_test_new_save<char, SortAlgorithm<char>>(SortAlgorithm<char>&, size_t, ArrayType, const std::string&, const std::string&);
+
+// Для run_test_new_nosave
+template void Helpers::run_test_new_nosave<int, SortAlgorithm<int>>(SortAlgorithm<int>&, size_t, ArrayType, const std::string&);
+template void Helpers::run_test_new_nosave<float, SortAlgorithm<float>>(SortAlgorithm<float>&, size_t, ArrayType, const std::string&);
+template void Helpers::run_test_new_nosave<double, SortAlgorithm<double>>(SortAlgorithm<double>&, size_t, ArrayType, const std::string&);
+template void Helpers::run_test_new_nosave<char, SortAlgorithm<char>>(SortAlgorithm<char>&, size_t, ArrayType, const std::string&);
+
+template void Helpers::saveToFile<int>(const std::vector<int>&, const std::string&);
+template void Helpers::saveToFile<float>(const std::vector<float>&, const std::string&);
+template void Helpers::saveToFile<double>(const std::vector<double>&, const std::string&);
+template void Helpers::saveToFile<char>(const std::vector<char>&, const std::string&);
 
 template void Helpers::printArray<int>(const std::vector<int>&);
 template void Helpers::printArray<float>(const std::vector<float>&);
