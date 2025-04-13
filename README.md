@@ -29,15 +29,16 @@ This repository contains the implementation and analysis of sorting algorithms a
 
 ### Build Instructions:
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/IShnitko/algorithms-and-computational-complexity-1.git
-   cd algorithms-and-computational-complexity-1
-   ```
+ ```bash
+ git clone https://github.com/IShnitko/algorithms-and-computational-complexity-1.git
+ cd algorithms-and-computational-complexity-1
+ ```
 2. Build with CMake:
 ```bash
-  mkdir build && cd build
-  cmake ..
-  make
+mkdir build && cd build
+cmake ..
+cmake --build .
+./AiZO_project_1.exe
 ```
 
 ### Usage:
@@ -61,13 +62,19 @@ For detailed results, see the [project report](AiZO-P1-IShnitko.pdf).
 ## 📂 Repository Structure
 ```
 ├── CMakeLists.txt          # Build configuration
-├── src/                    # Source code
+├── config/
+│   └── config.txt          # Configuration for testing
+├── include/
 │   ├── algorithms/         # Sorting algorithm implementations
-│   ├── utils/              # Data generation and validation
+│   ├── config/             # 
+│   ├── data_generation/    # Sorting algorithm implementations
+│   └── utils/     
+├── src/                    # Source code
+│   ├── config/             # Parsing of input file
+│   ├── data_generation/    # Data generation implementations
+│   ├── utils/              # Helpers (ex. running 100 tests, validation) and timer
 │   └── main.cpp            # Entry point
-├── data/                   # Sample input files
-├── docs/                   # Report and visualizations
-└── tests/                  # Validation tests
+└── test_data.txt           # Manual input data
 ```
 
 ## 🤝 Contributing
