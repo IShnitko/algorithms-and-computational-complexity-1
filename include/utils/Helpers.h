@@ -6,13 +6,17 @@
 namespace Helpers {
     // Szablonowe funkcje pomocnicze:
 
+    // Uruchamia standardowe testy wydajnościowe dla algorytmu
     template<typename T, typename Sorter>
-     void run_mode_default(Sorter& sorter, ArrayType array_type, const std::string& algorithm);
+    void run_mode_default(Sorter& sorter, ArrayType array_type, const std::string& algorithm);
 
+    // Testuje algorytm na danych wczytanych z pliku
     template<typename T, typename Sorter>
     void run_test_file(Sorter& sorter, std::vector<T>& data, const std::string& algorithm);
 
-    // Новые методы
+    // Nowe metody:
+
+    // Generuje nowe dane, zapisuje do pliku i testuje algorytm
     template<typename T, typename Sorter>
     void run_test_new_save(
         Sorter& sorter,
@@ -22,6 +26,7 @@ namespace Helpers {
         const std::string& filename
     );
 
+    // Generuje nowe dane bez zapisu i testuje algorytm
     template<typename T, typename Sorter>
     void run_test_new_nosave(
         Sorter& sorter,
@@ -30,18 +35,21 @@ namespace Helpers {
         const std::string& algorithm
     );
 
+    // Zapisuje tablicę do pliku w formacie: rozmiar + elementy w nowych liniach
     template<typename T>
     void saveToFile(const std::vector<T>& data, const std::string& filename);
 
-    // Wyświetla fragment tablicy z ograniczeniem elementów
+    // Wyświetla elementy tablicy z ograniczeniem do pierwszych 20 elementów
     template<typename T>
     void printArray(const std::vector<T>& data);
 
-    // Sprawdza czy tablica jest posortowana
+    // Sprawdza czy tablica jest posortowana niemalejąco
     template<typename T>
     bool isSorted(const std::vector<T>& data);
 
-    // Konwersja typów enum na string
+    // Konwertuje typ tablicy na czytelny string
     std::string arrayTypeToString(ArrayType type);
+
+    // Konwertuje typ danych na czytelny string
     std::string dataTypeToString(DataType type);
 }

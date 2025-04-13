@@ -8,6 +8,7 @@
 #include "data_generation/DataGenerator.h"
 #include "utils/Helpers.h"
 
+// Fabryka tworząca obiekt sortowania w zależności od nazwy algorytmu
 template<typename T>
 std::unique_ptr<SortAlgorithm<T>> create_sorter(const std::string& algorithm) {
     if (algorithm == "insertion_sort") return std::make_unique<InsertionSort<T>>();
@@ -19,10 +20,10 @@ std::unique_ptr<SortAlgorithm<T>> create_sorter(const std::string& algorithm) {
 
 int main() {
     try {
-        // Wczytaj konfigurację
+        // Wczytanie konfiguracji z pliku
         Config config = ConfigParser::parse("../config/config.txt");
-        
-        // Wybierz typ danych na podstawie konfiguracji
+
+        // Wybór logiki w zależności od typu danych
         switch (config.data_type) {
             case DataType::INT: {
                 auto sorter = create_sorter<int>(config.algorithm);
@@ -107,7 +108,8 @@ int main() {
             default:
                 throw std::runtime_error("Nieobsługiwany typ danych");
         }
-    } 
+    }
+    // Obsługa błędów
     catch (const std::exception& e) {
         std::cerr << "Błąd: " << e.what() << std::endl;
         return 1;

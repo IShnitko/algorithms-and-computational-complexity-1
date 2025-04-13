@@ -7,7 +7,7 @@
 #include <utils/Timer.h>
 
 namespace Helpers {
-    // Funkcja testująca pojedyncze sortowanie na danych z pliku
+    // Funkcja testująca algorytm na nowych danych z zapisem do pliku
     template<typename T, typename Sorter>
     void run_test_new_save(
         Sorter& sorter,
@@ -16,20 +16,26 @@ namespace Helpers {
         const std::string& algorithm,
         const std::string& filename
     ) {
+        // Generowanie danych testowych
         auto data = DataGenerator<T>::generate(size, array_type);
+
+        // Zapis danych do pliku przed sortowaniem
         saveToFile(data, filename);
 
+        // Wyświetlanie wygenerowanej tablicy
         std::cout << "Generated array (" << typeid(T).name() << "):\n";
         printArray(data);
 
+        // Sortowanie kopii danych
         auto data_copy = data;
         sorter.sort(data_copy);
 
+        // Wyświetlanie posortowanej tablicy
         std::cout << "Sorted by " << algorithm << ":\n";
         printArray(data_copy);
     }
 
-    // Новый метод: генерация без сохранения
+    // Funkcja testująca algorytm na nowych danych bez zapisu
     template<typename T, typename Sorter>
     void run_test_new_nosave(
         Sorter& sorter,
@@ -37,46 +43,54 @@ namespace Helpers {
         ArrayType array_type,
         const std::string& algorithm
     ) {
+        // Generowanie danych testowych
         auto data = DataGenerator<T>::generate(size, array_type);
 
+        // Wyświetlanie wygenerowanej tablicy
         std::cout << "Generated array (" << typeid(T).name() << "):\n";
         printArray(data);
 
+        // Sortowanie kopii danych
         auto data_copy = data;
         sorter.sort(data_copy);
 
+        // Wyświetlanie posortowanej tablicy
         std::cout << "Sorted by " << algorithm << ":\n";
         printArray(data_copy);
     }
 
+    // Testowanie algorytmu na danych wczytanych z pliku
     template<typename T, typename Sorter>
     void run_test_file(Sorter &sorter, std::vector<T> &data, const std::string& algorithm) {
+        // Wyświetlanie oryginalnej tablicy
         std::cout << "Original array (" << data.size() << " elements):\n";
         printArray(data);
 
+        // Pomiar czasu sortowania
         Timer timer;
         timer.start();
-        sorter.sort(data);  // Główna operacja sortowania
+        sorter.sort(data);
         double time = timer.stop();
 
+        // Wyświetlanie posortowanej tablicy i czasu
         std::cout << "Sorted array by "<< algorithm <<":\n";
         printArray(data);
         std::cout << "Time: " << time << " ms\n";
 
-        // Walidacja poprawności sortowania
+        // Weryfikacja poprawności sortowania
         if (!isSorted(data)) {
             throw std::runtime_error("Sorting validation failed!");
         }
     }
 
-    // Funkcja wykonująca pomiary wydajności dla różnych rozmiarów danych
+    // Benchmark różnych rozmiarów danych i typów tablic
     template<typename T, typename Sorter>
     void run_mode_default(Sorter &sorter, ArrayType array_type, const std::string& algorithm) {
         const std::vector<size_t> sizes = {10000, 20000, 40000, 60000, 80000, 160000};
-        const int runs = 100;  // Liczba powtórzeń dla uśredniania wyników
+        const int runs = 100;  // Liczba powtórzeń testów
 
         if (array_type == ArrayType::ALL) {
-            // Test wszystkich typów tablic jeśli wybrano "ALL"
+            // Test wszystkich dostępnych typów tablic
             const std::vector test_types = {
                 ArrayType::RANDOM,
                 ArrayType::SORTED,
@@ -90,6 +104,7 @@ namespace Helpers {
                 for (size_t size: sizes) {
                     double total = 0;
                     for (int i = 0; i < runs; ++i) {
+                        // Generowanie i testowanie danych
                         auto data = DataGenerator<T>::generate(size, type);
                         Timer timer;
                         timer.start();
@@ -100,24 +115,24 @@ namespace Helpers {
                 }
             }
         } else {
-            // Test tylko wybranego typu tablicy
+            // Test wybranego typu tablicy
             std::cout << "\nBenchmark results (" << arrayTypeToString(array_type)
                 << "):\nSize\tAvg Time (ms)\n";
             for (size_t size: sizes) {
-            double total = 0;
-            for (int i = 0; i < runs; ++i) {
-                auto data = DataGenerator<T>::generate(size, array_type);
-                Timer timer;
-                timer.start();
-                sorter.sort(data);
-                total += timer.stop();
+                double total = 0;
+                for (int i = 0; i < runs; ++i) {
+                    auto data = DataGenerator<T>::generate(size, array_type);
+                    Timer timer;
+                    timer.start();
+                    sorter.sort(data);
+                    total += timer.stop();
+                }
+                std::cout << size << "\t" << total / runs << "\n";
             }
-            std::cout << size << "\t" << total / runs << "\n";
-        }
         }
     }
 
-    // Wyświetla elementy tablicy z ograniczeniem do max_elements
+    // Wyświetlanie zawartości tablicy
     template<typename T>
     void printArray(const std::vector<T> &data) {
         std::cout << "[ ";
@@ -127,16 +142,16 @@ namespace Helpers {
         std::cout << "]\n";
     }
 
-    // Sprawdza czy tablica jest posortowana rosnąco
+    // Sprawdzanie czy tablica jest posortowana
     template<typename T>
     bool isSorted(const std::vector<T> &data) {
         for (size_t i = 0; i < data.size() - 1; ++i) {
-            if (data[i] > data[i + 1]) return false;  // Znaleziono błąd w sortowaniu
+            if (data[i] > data[i + 1]) return false;
         }
         return true;
     }
 
-    // Konwersja enum ArrayType na czytelny string
+    // Konwersja typu tablicy na string
     std::string arrayTypeToString(const ArrayType type) {
         switch (type) {
             case ArrayType::RANDOM: return "RANDOM";
@@ -148,7 +163,7 @@ namespace Helpers {
         }
     }
 
-    // Konwersja enum DataType na czytelny string
+    // Konwersja typu danych na string
     std::string dataTypeToString(const DataType type) {
         switch (type) {
             case DataType::INT: return "INT";
@@ -158,18 +173,16 @@ namespace Helpers {
             default: return "UNKNOWN DATATYPE";
         }
     }
+
+    // Zapis tablicy do pliku
     template<typename T>
     void saveToFile(const std::vector<T>& data, const std::string& filename) {
-
         std::remove(filename.c_str());
-
         std::ofstream file(filename);
         if (!file.is_open()) {
             throw std::runtime_error("Cannot open file: " + filename);
         }
-
         file << data.size() << "\n";
-
         for (const auto& item : data) {
             file << item << "\n";
         }
@@ -177,27 +190,21 @@ namespace Helpers {
 }
 
 // Jawne instancje szablonów dla obsługiwanych typów danych
-// Явные инстанции для всех шаблонных функций
-
-// Для run_mode_default
 template void Helpers::run_mode_default<int, SortAlgorithm<int>>(SortAlgorithm<int>&, ArrayType, const std::string&);
 template void Helpers::run_mode_default<float, SortAlgorithm<float>>(SortAlgorithm<float>&, ArrayType, const std::string&);
 template void Helpers::run_mode_default<double, SortAlgorithm<double>>(SortAlgorithm<double>&, ArrayType, const std::string&);
 template void Helpers::run_mode_default<char, SortAlgorithm<char>>(SortAlgorithm<char>&, ArrayType, const std::string&);
 
-// Для run_test_file
 template void Helpers::run_test_file<int, SortAlgorithm<int>>(SortAlgorithm<int>&, std::vector<int>&, const std::string&);
 template void Helpers::run_test_file<float, SortAlgorithm<float>>(SortAlgorithm<float>&, std::vector<float>&, const std::string&);
 template void Helpers::run_test_file<double, SortAlgorithm<double>>(SortAlgorithm<double>&, std::vector<double>&, const std::string&);
 template void Helpers::run_test_file<char, SortAlgorithm<char>>(SortAlgorithm<char>&, std::vector<char>&, const std::string&);
 
-// Для run_test_new_save
 template void Helpers::run_test_new_save<int, SortAlgorithm<int>>(SortAlgorithm<int>&, size_t, ArrayType, const std::string&, const std::string&);
 template void Helpers::run_test_new_save<float, SortAlgorithm<float>>(SortAlgorithm<float>&, size_t, ArrayType, const std::string&, const std::string&);
 template void Helpers::run_test_new_save<double, SortAlgorithm<double>>(SortAlgorithm<double>&, size_t, ArrayType, const std::string&, const std::string&);
 template void Helpers::run_test_new_save<char, SortAlgorithm<char>>(SortAlgorithm<char>&, size_t, ArrayType, const std::string&, const std::string&);
 
-// Для run_test_new_nosave
 template void Helpers::run_test_new_nosave<int, SortAlgorithm<int>>(SortAlgorithm<int>&, size_t, ArrayType, const std::string&);
 template void Helpers::run_test_new_nosave<float, SortAlgorithm<float>>(SortAlgorithm<float>&, size_t, ArrayType, const std::string&);
 template void Helpers::run_test_new_nosave<double, SortAlgorithm<double>>(SortAlgorithm<double>&, size_t, ArrayType, const std::string&);
