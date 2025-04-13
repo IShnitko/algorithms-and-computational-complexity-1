@@ -4,10 +4,9 @@ project(AiZO_project_1)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_FLAGS "-O3 -march=native")
-# Подключение заголовков
+
 include_directories(include)
 
-# Исходные файлы (явное указание пути к src/)
 add_executable(AiZO_project_1
         src/main.cpp
         src/config/ConfigParser.cpp

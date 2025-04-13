@@ -5,28 +5,28 @@
 template <typename T>
 class BinaryInsertionSort : public SortAlgorithm<T> {
 private:
-    // Бинарный поиск позиции для вставки (не изменяет данные)
+    // Binarnie znajduje pozycję do wstawienia elementu
     int findPosition(const std::vector<T>& data, const T& key, int low, int high) {
         while (low <= high) {
-            int mid = low + (high - low) / 2;
+            int mid = low + (high - low) / 2;  // Środkowy indeks
             if (data[mid] < key) {
-                low = mid + 1;
+                low = mid + 1;  // Szukaj w prawej połowie
             } else {
-                high = mid - 1;
+                high = mid - 1; // Szukaj w lewej połowie
             }
         }
-        return low; // Возвращает индекс для вставки
+        return low;  // Zwraca indeks do wstawienia
     }
 
 public:
     void sort(std::vector<T>& data) override {
         for (size_t i = 1; i < data.size(); ++i) {
-            T key = data[i];
-            
-            // Находим позицию через бинарный поиск
+            T key = data[i];  // Bieżący element
+
+            // Znajdź pozycję przy użyciu wyszukiwania binarnego
             int pos = findPosition(data, key, 0, i - 1);
-            
-            // Сдвигаем элементы и вставляем key
+
+            // Przesuń elementy i wstaw key
             for (int j = i - 1; j >= pos; --j) {
                 data[j + 1] = data[j];
             }

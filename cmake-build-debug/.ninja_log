@@ -1,7 +1,17 @@
 # ninja log v6
-42	435	7660855582978738	CMakeFiles/AiZO_project_1.dir/src/utils/Timer.cpp.obj	3c13d634787f749f
 30	985	7660855582863393	CMakeFiles/AiZO_project_1.dir/src/config/ConfigParser.cpp.obj	b21f564c25e98358
+42	435	7660855582978738	CMakeFiles/AiZO_project_1.dir/src/utils/Timer.cpp.obj	3c13d634787f749f
 6	1269	7660869743658330	CMakeFiles/AiZO_project_1.dir/src/utils/Helpers.cpp.obj	8eab71c6b795bde5
-24	2209	7660855582793195	CMakeFiles/AiZO_project_1.dir/src/main.cpp.obj	5c9bdb2866229e62
 18	3020	7653277538251116	CMakeFiles/AiZO_project_1.dir/src/data_generation/DataGenerator.cpp.obj	cb9d87dde1aaa829
+24	2209	7660855582793195	CMakeFiles/AiZO_project_1.dir/src/main.cpp.obj	5c9bdb2866229e62
 1270	1428	7660869756291295	AiZO_project_1.exe	da35e0e64d075c5
+4	527	7662757782608994	build.ninja	d85b9c5adf1405a4
+22	316	7662757783135981	CMakeFiles/AiZO_project_1.dir/src/utils/Timer.cpp.obj	3c13d634787f749f
+10	834	7662757783015804	CMakeFiles/AiZO_project_1.dir/src/config/ConfigParser.cpp.obj	b21f564c25e98358
+17	1260	7662757783095680	CMakeFiles/AiZO_project_1.dir/src/utils/Helpers.cpp.obj	8eab71c6b795bde5
+5	2034	7662757782970570	CMakeFiles/AiZO_project_1.dir/src/main.cpp.obj	5c9bdb2866229e62
+13	2669	7662757783055789	CMakeFiles/AiZO_project_1.dir/src/data_generation/DataGenerator.cpp.obj	cb9d87dde1aaa829
+2669	3071	7662757809607886	AiZO_project_1.exe	da35e0e64d075c5
+6	1837	7662761436748759	CMakeFiles/AiZO_project_1.dir/src/main.cpp.obj	5c9bdb2866229e62
+6	1005	7662761770796973	CMakeFiles/AiZO_project_1.dir/src/utils/Helpers.cpp.obj	8eab71c6b795bde5
+1005	1158	7662761780792886	AiZO_project_1.exe	da35e0e64d075c5
