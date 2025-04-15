@@ -55,6 +55,7 @@ Config ConfigParser::parse(const string &filename) {
             else if (value == "test_file") config.mode = Mode::TEST_FILE;
             else if (value == "test_new_save") config.mode = Mode::TEST_NEW_SAVE;
             else if (value == "test_new_nosave") config.mode = Mode::TEST_NEW_NOSAVE;
+            if (value == "comparative_benchmark") config.mode = Mode::COMPARATIVE_BENCHMARK;
             else throw invalid_argument("Unknown mode: " + value);
         }
         else if (key == "size") {

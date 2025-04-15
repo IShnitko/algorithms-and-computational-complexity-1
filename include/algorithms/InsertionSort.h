@@ -17,4 +17,5 @@ public:
             data[j + 1] = key;  // Wstawienie key w odpowiednie miejsce
         }
     }
+    std::string getName() const override { return "insertion_sort"; }
 };

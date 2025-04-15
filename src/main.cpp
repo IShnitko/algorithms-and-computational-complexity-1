@@ -42,6 +42,23 @@ int main() {
                     case Mode::TEST_NEW_NOSAVE:
                         Helpers::run_test_new_nosave<int>(*sorter, config.size, config.array_type, config.algorithm);
                         break;
+                    case Mode::COMPARATIVE_BENCHMARK: {
+                        // Создание всех алгоритмов для данного типа данных
+                        std::vector<std::unique_ptr<SortAlgorithm<int>>> algorithms;
+                        algorithms.push_back(std::make_unique<InsertionSort<int>>());
+                        algorithms.push_back(std::make_unique<BinaryInsertionSort<int>>());
+                        algorithms.push_back(std::make_unique<HeapSort<int>>());
+                        algorithms.push_back(std::make_unique<QuickSort<int>>());
+
+                        // Запуск сравнительного теста
+                        Helpers::run_comparative_benchmark<int>(
+                            algorithms,
+                            config.array_type,
+                            config.size,
+                            100  // Количество прогонов
+                        );
+                        break;
+                    }
                 }
                 break;
             }

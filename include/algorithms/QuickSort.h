@@ -40,4 +40,5 @@ public:
     void sort(std::vector<T> &data) override {
         quickSort(data, 0, data.size() - 1);
     }
+    std::string getName() const override { return "quick_sort"; }
 };

@@ -34,4 +34,5 @@ public:
             heapify(data, i, 0);          // Napraw zmniejszony kopiec
         }
     }
+    std::string getName() const override { return "heap_sort"; }
 };

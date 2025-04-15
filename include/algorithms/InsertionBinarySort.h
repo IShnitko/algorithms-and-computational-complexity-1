@@ -33,4 +33,5 @@ public:
             data[pos] = key;
         }
     }
+    std::string getName() const override { return "insertion_binary_sort"; }
 };

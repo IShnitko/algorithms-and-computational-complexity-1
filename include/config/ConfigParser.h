@@ -13,7 +13,8 @@ enum class Mode {
     DEFAULT,
     TEST_FILE,
     TEST_NEW_SAVE,
-    TEST_NEW_NOSAVE
+    TEST_NEW_NOSAVE,
+    COMPARATIVE_BENCHMARK
 };
 // Konfiguracja programu wczytana z pliku
 struct Config {

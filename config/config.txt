@@ -1,15 +1,16 @@
 #insertion_sort, insertion_binary_sort, heap_sort, quick_sort
 algorithm = heap_sort
 #int, float, double, char
-data_type = char
+data_type = int
 # random, sorted, reverse_sorted, partially_sorted_33, partially_sorted_66, all
 array_type = random
 # default - normal testing of a lot of random values
 # test_file - testing from the file
 # test_new_save - testing new set of data with saving to the file
 # test_new_nosave - testing new set of data without saving
-mode = test_file
-size = 15
+# comparative_benchmark
+mode = comparative_benchmark
+size = 10000
 # input file uses this template:
 # {size}
 # {values separated by space}

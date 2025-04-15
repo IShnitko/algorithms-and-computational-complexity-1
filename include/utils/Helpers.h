@@ -1,6 +1,9 @@
 #pragma once
+#include <memory>
 #include <vector>
 #include <string>
+#include <algorithms/SortAlgorithm.h>
+
 #include "config/ConfigParser.h"
 
 namespace Helpers {
@@ -33,6 +36,14 @@ namespace Helpers {
         size_t size,
         ArrayType array_type,
         const std::string& algorithm
+    );
+
+    template<typename T>
+    void run_comparative_benchmark(
+        const std::vector<std::unique_ptr<SortAlgorithm<T>>>& algorithms,
+        ArrayType array_type,
+        size_t data_size,
+        int runs = 100
     );
 
     // Zapisuje tablicę do pliku w formacie: rozmiar + elementy w nowych liniach

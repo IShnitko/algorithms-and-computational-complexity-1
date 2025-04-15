@@ -8,6 +8,7 @@ public:
     // Wirtualna metoda sortująca (do implementacji w klasach pochodnych)
     virtual void sort(std::vector<T>& data) = 0;
 
+    virtual std::string getName() const = 0;
     // Wirtualny destruktor (domyślna implementacja)
     virtual ~SortAlgorithm() = default;
 };
