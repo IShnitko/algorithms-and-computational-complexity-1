@@ -89,20 +89,20 @@ namespace Helpers {
         size_t data_size,
         int runs
     ) {
-        // Генерация данных один раз
+        // Generacja danych jeden raz
         auto data = DataGenerator<T>::generate(data_size, array_type);
 
         std::cout << "\n=== Comparative Benchmark ===" << std::endl;
         std::cout << "Array Type: " << arrayTypeToString(array_type) << std::endl;
         std::cout << "Size: " << data_size << "\n\n";
 
-        // Тестирование каждого алгоритма
+        // Testowanie kazdego algorytmu
         for (const auto& algorithm : algorithms) {
             double total_time = 0;
-            std::string algo_name = algorithm->getName(); // Добавьте метод getName() в SortAlgorithm
+            std::string algo_name = algorithm->getName();
 
             for (int i = 0; i < runs; ++i) {
-                auto data_copy = data;  // Копия данных для каждого запуска
+                auto data_copy = data;  // Kopia danych dla kazdej iteracji
                 Timer timer;
                 timer.start();
                 algorithm->sort(data_copy);
@@ -240,37 +240,11 @@ template void Helpers::run_test_new_nosave<float, SortAlgorithm<float>>(SortAlgo
 template void Helpers::run_test_new_nosave<double, SortAlgorithm<double>>(SortAlgorithm<double>&, size_t, ArrayType, const std::string&);
 template void Helpers::run_test_new_nosave<char, SortAlgorithm<char>>(SortAlgorithm<char>&, size_t, ArrayType, const std::string&);
 
-// Для типа int
-template void Helpers::run_comparative_benchmark<int>(
-    const std::vector<std::unique_ptr<SortAlgorithm<int>>>&,
-    ArrayType,
-    size_t,
-    int
-);
 
-// Для типа float
-template void Helpers::run_comparative_benchmark<float>(
-    const std::vector<std::unique_ptr<SortAlgorithm<float>>>&,
-    ArrayType,
-    size_t,
-    int
-);
-
-// Для типа double
-template void Helpers::run_comparative_benchmark<double>(
-    const std::vector<std::unique_ptr<SortAlgorithm<double>>>&,
-    ArrayType,
-    size_t,
-    int
-);
-
-// Для типа char
-template void Helpers::run_comparative_benchmark<char>(
-    const std::vector<std::unique_ptr<SortAlgorithm<char>>>&,
-    ArrayType,
-    size_t,
-    int
-);
+template void Helpers::run_comparative_benchmark<int>(const std::vector<std::unique_ptr<SortAlgorithm<int>>>&, ArrayType, size_t, int);
+template void Helpers::run_comparative_benchmark<float>(const std::vector<std::unique_ptr<SortAlgorithm<float>>>&, ArrayType, size_t, int);
+template void Helpers::run_comparative_benchmark<char>(const std::vector<std::unique_ptr<SortAlgorithm<char>>>&, ArrayType, size_t, int);
+template void Helpers::run_comparative_benchmark<double>(const std::vector<std::unique_ptr<SortAlgorithm<double>>>&, ArrayType, size_t, int);
 
 template void Helpers::saveToFile<int>(const std::vector<int>&, const std::string&);
 template void Helpers::saveToFile<float>(const std::vector<float>&, const std::string&);

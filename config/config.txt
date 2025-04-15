@@ -8,7 +8,7 @@ array_type = random
 # test_file - testing from the file
 # test_new_save - testing new set of data with saving to the file
 # test_new_nosave - testing new set of data without saving
-# comparative_benchmark
+# comparative_benchmark - testing a fixed set of data on every algorithm 100 times
 mode = comparative_benchmark
 size = 10000
 # input file uses this template:

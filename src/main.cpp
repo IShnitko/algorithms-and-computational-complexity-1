@@ -43,19 +43,18 @@ int main() {
                         Helpers::run_test_new_nosave<int>(*sorter, config.size, config.array_type, config.algorithm);
                         break;
                     case Mode::COMPARATIVE_BENCHMARK: {
-                        // Создание всех алгоритмов для данного типа данных
+                        // utworzenie wszystkich algorytmow dla wybranego typu danych
                         std::vector<std::unique_ptr<SortAlgorithm<int>>> algorithms;
                         algorithms.push_back(std::make_unique<InsertionSort<int>>());
                         algorithms.push_back(std::make_unique<BinaryInsertionSort<int>>());
                         algorithms.push_back(std::make_unique<HeapSort<int>>());
                         algorithms.push_back(std::make_unique<QuickSort<int>>());
 
-                        // Запуск сравнительного теста
                         Helpers::run_comparative_benchmark<int>(
                             algorithms,
                             config.array_type,
                             config.size,
-                            100  // Количество прогонов
+                            100
                         );
                         break;
                     }
@@ -79,6 +78,22 @@ int main() {
                     case Mode::TEST_NEW_NOSAVE:
                         Helpers::run_test_new_nosave<float>(*sorter, config.size, config.array_type, config.algorithm);
                     break;
+                    case Mode::COMPARATIVE_BENCHMARK: {
+                        // utworzenie wszystkich algorytmow dla wybranego typu danych
+                        std::vector<std::unique_ptr<SortAlgorithm<float>>> algorithms;
+                        algorithms.push_back(std::make_unique<InsertionSort<float>>());
+                        algorithms.push_back(std::make_unique<BinaryInsertionSort<float>>());
+                        algorithms.push_back(std::make_unique<HeapSort<float>>());
+                        algorithms.push_back(std::make_unique<QuickSort<float>>());
+
+                        Helpers::run_comparative_benchmark<float>(
+                            algorithms,
+                            config.array_type,
+                            config.size,
+                            100
+                        );
+                        break;
+                    }
                 }
                 break;
             }
@@ -99,6 +114,22 @@ int main() {
                     case Mode::TEST_NEW_NOSAVE:
                         Helpers::run_test_new_nosave<double>(*sorter, config.size, config.array_type, config.algorithm);
                     break;
+                    case Mode::COMPARATIVE_BENCHMARK: {
+                        // utworzenie wszystkich algorytmow dla wybranego typu danych
+                        std::vector<std::unique_ptr<SortAlgorithm<double>>> algorithms;
+                        algorithms.push_back(std::make_unique<InsertionSort<double>>());
+                        algorithms.push_back(std::make_unique<BinaryInsertionSort<double>>());
+                        algorithms.push_back(std::make_unique<HeapSort<double>>());
+                        algorithms.push_back(std::make_unique<QuickSort<double>>());
+
+                        Helpers::run_comparative_benchmark<double>(
+                            algorithms,
+                            config.array_type,
+                            config.size,
+                            100
+                        );
+                        break;
+                    }
                 }
                 break;
             }
@@ -119,6 +150,22 @@ int main() {
                     case Mode::TEST_NEW_NOSAVE:
                         Helpers::run_test_new_nosave<char>(*sorter, config.size, config.array_type, config.algorithm);
                     break;
+                    case Mode::COMPARATIVE_BENCHMARK: {
+                        // utworzenie wszystkich algorytmow dla wybranego typu danych
+                        std::vector<std::unique_ptr<SortAlgorithm<char>>> algorithms;
+                        algorithms.push_back(std::make_unique<InsertionSort<char>>());
+                        algorithms.push_back(std::make_unique<BinaryInsertionSort<char>>());
+                        algorithms.push_back(std::make_unique<HeapSort<char>>());
+                        algorithms.push_back(std::make_unique<QuickSort<char>>());
+
+                        Helpers::run_comparative_benchmark<char>(
+                            algorithms,
+                            config.array_type,
+                            config.size,
+                            100
+                        );
+                        break;
+                    }
                 }
                 break;
             }
